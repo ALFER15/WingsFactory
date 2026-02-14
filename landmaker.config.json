@@ -1,0 +1,26 @@
+{
+  "pages": {
+    "home": [
+      {
+        "type": "hero",
+        "variant": 2,
+        "theme": "default"
+      },
+      {
+        "type": "hero",
+        "variant": 2,
+        "theme": "default"
+      },
+      {
+        "type": "features",
+        "variant": 1,
+        "theme": "default"
+      },
+      {
+        "type": "contact",
+        "variant": 1,
+        "theme": "default"
+      }
+    ]
+  }
+}

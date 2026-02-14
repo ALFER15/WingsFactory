@@ -5,6 +5,7 @@ import chalk from 'chalk';
 import { runAddCommand } from './commands/add';
 import { runInitCommand } from './commands/init';
 import { runMapCommand } from './commands/map';
+import { runRemoveCommand } from './commands/remove';
 
 function printHelp(): void {
   console.log(`\n${chalk.bold('Landmaker CLI')}\n`);
@@ -12,6 +13,7 @@ function printHelp(): void {
   console.log(`  ${chalk.cyan('landmaker init')}  Crea o repara landmaker.config.json.`);
   console.log(`  ${chalk.cyan('landmaker map')}   Muestra la estructura actual de páginas y secciones.`);
   console.log(`  ${chalk.cyan('landmaker add <type> <variant> [theme]')}   Agrega una sección al final de home.`);
+  console.log(`  ${chalk.cyan('landmaker remove <index>')}   Elimina una sección por índice (base 1).`);
 }
 
 function main(): void {
@@ -21,6 +23,9 @@ function main(): void {
   switch (command) {
     case 'add':
       runAddCommand(args, process.cwd());
+      return;
+    case 'remove':
+      runRemoveCommand(args, process.cwd());
       return;
     case 'init':
       runInitCommand(process.cwd());

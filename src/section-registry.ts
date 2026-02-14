@@ -1,9 +1,6 @@
-/*
-  Archivo puente del render dinámico.
-  - Fuente única de render para Composer.
-  - Este archivo es regenerado por Landmaker (rebuildProject).
+import S0 from "./active-sections/hero-2-0.astro";
+import S1 from "./active-sections/hero-2-1.astro";
+import S2 from "./active-sections/features-1-2.astro";
+import S3 from "./active-sections/contact-1-3.astro";
 
-  Se deja un fallback vacío para que el sitio compile antes del primer rebuild.
-*/
-
-export const sections = [];
+export const sections = [S0, S1, S2, S3];
