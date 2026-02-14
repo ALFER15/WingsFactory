@@ -3,6 +3,8 @@
 import chalk from 'chalk';
 
 import { runAddCommand } from './commands/add';
+import { runDeployCommand } from './commands/deploy';
+import { runDoctorCommand } from './commands/doctor';
 import { runInitCommand } from './commands/init';
 import { runMapCommand } from './commands/map';
 import { runRemoveCommand } from './commands/remove';
@@ -12,6 +14,8 @@ function printHelp(): void {
   console.log('Uso:');
   console.log(`  ${chalk.cyan('landmaker init')}  Crea o repara landmaker.config.json.`);
   console.log(`  ${chalk.cyan('landmaker map')}   Muestra la estructura actual de páginas y secciones.`);
+  console.log(`  ${chalk.cyan('landmaker doctor')}   Diagnostica inconsistencias entre config, wrappers, registry y plantillas.`);
+  console.log(`  ${chalk.cyan('landmaker deploy')}   Limpia plantillas no utilizadas y regenera artefactos para producción.`);
   console.log(`  ${chalk.cyan('landmaker add <type> <variant> [theme]')}   Agrega una sección al final de home.`);
   console.log(`  ${chalk.cyan('landmaker remove <index>')}   Elimina una sección por índice (base 1).`);
 }
@@ -26,6 +30,12 @@ function main(): void {
       return;
     case 'remove':
       runRemoveCommand(args, process.cwd());
+      return;
+    case 'doctor':
+      runDoctorCommand(process.cwd());
+      return;
+    case 'deploy':
+      void runDeployCommand(process.cwd());
       return;
     case 'init':
       runInitCommand(process.cwd());

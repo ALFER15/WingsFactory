@@ -15,11 +15,6 @@
         "type": "features",
         "variant": 1,
         "theme": "default"
-      },
-      {
-        "type": "contact",
-        "variant": 1,
-        "theme": "default"
       }
     ]
   }
