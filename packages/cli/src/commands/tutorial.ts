@@ -1,7 +1,6 @@
 import boxen from 'boxen';
 import chalk from 'chalk';
-import readline from 'node:readline/promises';
-import { stdin as input, stdout as output } from 'node:process';
+import readline from 'node:readline';
 
 type TutorialStep = {
   title: string;
@@ -11,24 +10,14 @@ type TutorialStep = {
   notes: string[];
 };
 
-type FaceFrame = {
-  leftEye: string;
-  rightEye: string;
-  mouth: string;
-  sparkle: string;
-};
+type FaceFrame = { eyes: string; mouth: string; accent: string };
 
+const MINT = '#66f2c5';
 const FACE_FRAMES: FaceFrame[] = [
-  { leftEye: 'o', rightEye: 'o', mouth: '_^_', sparkle: '✦' },
-  { leftEye: '-', rightEye: '-', mouth: '___', sparkle: '·' },
-  { leftEye: 'o', rightEye: '*', mouth: '_v_', sparkle: '✧' },
+  { eyes: 'o o', mouth: '_^_', accent: '✦' },
+  { eyes: '- -', mouth: '___', accent: '·' },
+  { eyes: 'o *', mouth: '_v_', accent: '✧' },
 ];
-
-class TutorialExit extends Error {
-  constructor() {
-    super('tutorial_exit');
-  }
-}
 
 const STEPS: TutorialStep[] = [
   {
@@ -155,7 +144,7 @@ function gradientColor(ratio: number): string {
   return chalk.rgb(r, g, b)('█');
 }
 
-function renderGradientBar(currentStep: number, totalSteps: number, width: number = 34): string {
+function renderGradientBar(currentStep: number, totalSteps: number, width: number = 20): string {
   const progress = totalSteps === 0 ? 1 : currentStep / totalSteps;
   const filled = Math.max(0, Math.min(width, Math.round(progress * width)));
 
@@ -174,16 +163,35 @@ function renderGradientBar(currentStep: number, totalSteps: number, width: numbe
 
 function landcelotArt(frame: FaceFrame): string {
   return [
-    `${frame.sparkle}      .-""""-.      ${frame.sparkle}`,
-    `     /  .--.  \\`,
-    `    /  /${frame.leftEye}  ${frame.rightEye}\\  \\`,
-    `   |  |   ${frame.mouth}   |  |`,
-    '   |  |  .__.  |  |',
-    '    \\  \\ |__| /  /',
-    '     \\._\\|____|_/_.',
-    '      /_/      \\_\\',
-    '       LANDCELOT',
-  ].join('\n');
+    `${frame.accent}  .-"""-.  ${frame.accent}`,
+    `  / .-.-. \\`,
+    ` | | ${frame.eyes} | |`,
+    ` | | ${frame.mouth} | |`,
+    '  \\ \___/ /',
+    '   \\_____/',
+    '   LANDCELOT',
+  ].map((line) => chalk.hex(MINT)(line)).join('\n');
+}
+
+function padRight(value: string, width: number): string {
+  if (value.length >= width) {
+    return value;
+  }
+  return value + ' '.repeat(width - value.length);
+}
+
+function joinColumns(leftLines: string[], rightLines: string[], gap: number = 4): string {
+  const leftWidth = leftLines.reduce((max, line) => Math.max(max, line.length), 0);
+  const totalRows = Math.max(leftLines.length, rightLines.length);
+  const rows: string[] = [];
+
+  for (let i = 0; i < totalRows; i++) {
+    const left = leftLines[i] ?? '';
+    const right = rightLines[i] ?? '';
+    rows.push(`${padRight(left, leftWidth)}${' '.repeat(gap)}${right}`);
+  }
+
+  return rows.join('\n');
 }
 
 function renderDialogScene(params: {
@@ -194,26 +202,29 @@ function renderDialogScene(params: {
   details?: string[];
   stepIndex: number;
   total: number;
+  controls?: string;
 }): void {
   clearScreen();
   printBanner(params.title, params.subtitle);
 
-  const progressLabel = params.total > 0 ? `Progreso paso ${params.stepIndex}/${params.total}` : 'Progreso tutorial';
-  const progressBlock = [chalk.bold(progressLabel), renderGradientBar(params.stepIndex, params.total)].join('\n');
-  console.log(
-    boxen(progressBlock, {
-      padding: 1,
-      borderStyle: 'round',
-      borderColor: 'blue',
-    })
-  );
-
-  const dialogLines = [
-    landcelotArt(params.frame),
+  const robotLines = [
+    ...landcelotArt(params.frame).split('\n'),
     '',
-    chalk.bold.yellow('LANDCELOT:'),
+    chalk.hex(MINT).bold('LANDCELOT:'),
     ...params.speech.map((line) => `  ${line}`),
   ];
+
+  const progressLabel = params.total > 0 ? `Paso ${params.stepIndex}/${params.total}` : 'Progreso';
+  const sidePanelLines = [
+    chalk.bold('Panel'),
+    chalk.dim(progressLabel),
+    renderGradientBar(params.stepIndex, params.total),
+    '',
+    chalk.dim('Control:'),
+    params.controls ?? chalk.cyan('[s] siguiente  [q] salir'),
+  ];
+
+  const dialogLines = [joinColumns(robotLines, sidePanelLines)];
 
   if (params.details && params.details.length > 0) {
     dialogLines.push('');
@@ -229,40 +240,54 @@ function renderDialogScene(params: {
   );
 }
 
-async function waitForNextStep(stepIndex: number, total: number): Promise<void> {
+async function waitForNextStep(stepIndex: number, total: number): Promise<'next' | 'prev' | 'quit'> {
   if (!process.stdin.isTTY || !process.stdout.isTTY) {
     await sleep(700);
-    return;
+    return 'next';
   }
 
-  const rl = readline.createInterface({ input, output });
-  try {
-    while (true) {
-      const frame = FACE_FRAMES[stepIndex % FACE_FRAMES.length];
-      renderDialogScene({
-        title: 'LANDCELOT espera tu señal',
-        subtitle: 'Tutorial interactivo estilo juego',
-        frame,
-        speech: [
-          'Teclea `s` y presiona Enter para avanzar al siguiente diálogo.',
-          'Si quieres salir del tutorial, escribe `q` y presiona Enter.',
-        ],
-        stepIndex,
-        total,
-      });
+  readline.emitKeypressEvents(process.stdin);
 
-      const answer = (await rl.question(chalk.bold.cyan('Tu acción [s/q]: '))).trim().toLowerCase();
-      if (answer === 's' || answer === 'si' || answer === 'sí') {
+  const stdin = process.stdin as NodeJS.ReadStream & {
+    setRawMode?: (mode: boolean) => void;
+  };
+
+  return await new Promise<'next' | 'prev' | 'quit'>((resolve) => {
+    const cleanup = (): void => {
+      process.stdin.removeListener('keypress', onKeyPress);
+      if (stdin.setRawMode) {
+        stdin.setRawMode(false);
+      }
+      process.stdin.pause();
+    };
+
+    const onKeyPress = (str: string, key: readline.Key): void => {
+      const pressed = (str || key.name || '').toLowerCase();
+
+      if (pressed === 's' || key.name === 'return' || key.name === 'enter') {
+        cleanup();
+        resolve('next');
         return;
       }
 
-      if (answer === 'q') {
-        throw new TutorialExit();
+      if (pressed === 'a' || pressed === 'p' || key.name === 'left') {
+        cleanup();
+        resolve('prev');
+        return;
       }
+
+      if (pressed === 'q' || (key.ctrl && key.name === 'c')) {
+        cleanup();
+        resolve('quit');
+      }
+    };
+
+    if (stdin.setRawMode) {
+      stdin.setRawMode(true);
     }
-  } finally {
-    rl.close();
-  }
+    process.stdin.resume();
+    process.stdin.on('keypress', onKeyPress);
+  });
 }
 
 async function animateLandcelotThinking(stepIndex: number, total: number, message: string): Promise<void> {
@@ -275,6 +300,7 @@ async function animateLandcelotThinking(stepIndex: number, total: number, messag
       speech: [message],
       stepIndex,
       total,
+      controls: chalk.dim('Espera...'),
     });
     await sleep(140);
   }
@@ -290,6 +316,7 @@ async function animateIntroRobot(total: number): Promise<void> {
       speech: ['Sincronizando comandos, preparando diálogos y barras de progreso...'],
       stepIndex: 0,
       total,
+      controls: chalk.dim('Cargando...'),
     });
     await sleep(180);
   }
@@ -318,9 +345,8 @@ async function renderStep(step: TutorialStep, index: number, total: number): Pro
     details,
     stepIndex: index + 1,
     total,
+    controls: chalk.cyan('Pulsa [a] tip previo | [s] siguiente | [q] salir'),
   });
-
-  await waitForNextStep(index + 1, total);
 }
 
 async function renderClosing(total: number): Promise<void> {
@@ -354,29 +380,50 @@ export async function runTutorialCommand(): Promise<void> {
       ],
       stepIndex: 0,
       total: totalSteps,
+      controls: chalk.cyan('Pulsa [s] para arrancar (o [q] para salir)'),
     });
-    await waitForNextStep(0, totalSteps);
-
-    for (let i = 0; i < STEPS.length; i++) {
-      await animateLandcelotThinking(i + 1, totalSteps, 'Ajustando panel de comando para el siguiente paso...');
-      await renderStep(STEPS[i], i, STEPS.length);
-    }
-
-    await animateLandcelotThinking(totalSteps, totalSteps, 'Guardando progreso del entrenamiento CLI...');
-    await renderClosing(totalSteps);
-  } catch (error) {
-    if (error instanceof TutorialExit) {
+    const introAction = await waitForNextStep(0, totalSteps);
+    if (introAction === 'quit') {
       renderDialogScene({
         title: 'Tutorial pausado por el usuario',
         subtitle: 'Puedes volver cuando quieras',
         frame: FACE_FRAMES[1],
         speech: ['Sin problema. Ejecuta `landmaker tutorial` cuando quieras continuar.'],
         stepIndex: 0,
-        total: STEPS.length,
+        total: totalSteps,
       });
       return;
     }
 
+    let currentStep = 0;
+    while (currentStep < STEPS.length) {
+      await animateLandcelotThinking(currentStep + 1, totalSteps, 'Ajustando panel de comando para el siguiente paso...');
+      await renderStep(STEPS[currentStep], currentStep, STEPS.length);
+
+      const action = await waitForNextStep(currentStep + 1, totalSteps);
+      if (action === 'quit') {
+        renderDialogScene({
+          title: 'Tutorial pausado por el usuario',
+          subtitle: 'Puedes volver cuando quieras',
+          frame: FACE_FRAMES[1],
+          speech: ['Sin problema. Ejecuta `landmaker tutorial` cuando quieras continuar.'],
+          stepIndex: currentStep + 1,
+          total: totalSteps,
+        });
+        return;
+      }
+
+      if (action === 'prev') {
+        currentStep = Math.max(0, currentStep - 1);
+        continue;
+      }
+
+      currentStep += 1;
+    }
+
+    await animateLandcelotThinking(totalSteps, totalSteps, 'Guardando progreso del entrenamiento CLI...');
+    await renderClosing(totalSteps);
+  } catch {
     console.log(
       boxen(
         [
