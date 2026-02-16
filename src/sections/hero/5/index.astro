@@ -1,0 +1,104 @@
+<section class="hero-five">
+  <div class="layer layer-a"></div>
+  <div class="layer layer-b"></div>
+  <div class="layer layer-c"></div>
+
+  <div class="content">
+    <p class="eyebrow">Background Carousel Hero</p>
+    <h1>Un carrusel de fondos que cuenta una historia visual</h1>
+    <p>
+      Este hero rota escenas de color y textura en segundo plano. El texto permanece estable para mantener
+      legibilidad mientras el entorno cambia.
+    </p>
+    <div class="cta-row">
+      <a href="#">Ver casos</a>
+      <a href="#">Solicitar propuesta</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-five {
+    position: relative;
+    border-radius: 28px;
+    overflow: hidden;
+    min-height: 430px;
+    padding: clamp(2.5rem, 6vw, 5rem);
+    isolation: isolate;
+    color: #f8fafc;
+  }
+
+  .layer {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    z-index: -2;
+    animation: bgCycle 16s infinite;
+  }
+
+  .layer-a {
+    background: radial-gradient(circle at 20% 20%, #fde68a 0%, transparent 38%),
+      linear-gradient(135deg, #78350f, #431407 65%, #111827);
+    animation-delay: 0s;
+  }
+
+  .layer-b {
+    background: radial-gradient(circle at 80% 30%, #93c5fd 0%, transparent 35%),
+      repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.08) 0 14px, transparent 14px 28px),
+      linear-gradient(135deg, #0f172a, #1e3a8a, #312e81);
+    animation-delay: 5.3s;
+  }
+
+  .layer-c {
+    background: radial-gradient(circle at 60% 75%, #6ee7b7 0%, transparent 35%),
+      linear-gradient(120deg, #052e16, #0f766e 55%, #042f2e);
+    animation-delay: 10.6s;
+  }
+
+  .content {
+    max-width: 700px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .eyebrow {
+    margin: 0;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #bfdbfe;
+    font-size: 0.8rem;
+  }
+
+  h1 {
+    margin: 0.6rem 0;
+    font-size: clamp(2rem, 5vw, 3.8rem);
+    line-height: 1.08;
+  }
+
+  p {
+    max-width: 60ch;
+    color: #e2e8f0;
+  }
+
+  .cta-row {
+    margin-top: 1.2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+
+  .cta-row a {
+    text-decoration: none;
+    border-radius: 999px;
+    padding: 0.72rem 1.1rem;
+    font-weight: 700;
+    color: #082f49;
+    background: #e0f2fe;
+  }
+
+  @keyframes bgCycle {
+    0%, 24% { opacity: 1; }
+    33%, 100% { opacity: 0; }
+  }
+</style>

@@ -1,0 +1,129 @@
+<section class="hero hero-one">
+  <div class="hero-inner">
+    <p class="kicker">Launch System</p>
+    <h1>Diseña una landing que convierta en minutos</h1>
+    <p class="lead">
+      Hero editorial con composición dramática, contraste alto y una narrativa clara para abrir la página con
+      autoridad.
+    </p>
+
+    <div class="actions">
+      <a href="#" class="btn btn-primary">Iniciar proyecto</a>
+      <a href="#" class="btn btn-ghost">Ver demo guiada</a>
+    </div>
+
+    <ul class="metrics">
+      <li><strong>+214%</strong><span>CTR medio en primer bloque</span></li>
+      <li><strong>11 min</strong><span>Tiempo de armado inicial</span></li>
+      <li><strong>24/7</strong><span>Actualizaciones sin fricción</span></li>
+    </ul>
+  </div>
+
+  <div class="halo" aria-hidden="true"></div>
+</section>
+
+<style>
+  .hero-one {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(3rem, 7vw, 6rem);
+    border-radius: 28px;
+    color: #ecfff8;
+    background: radial-gradient(circle at 80% -20%, #5eead4 0%, transparent 45%),
+      linear-gradient(135deg, #052e2b 0%, #063c39 38%, #0f172a 100%);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+  }
+
+  .hero-inner {
+    max-width: 760px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .kicker {
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.78rem;
+    color: #7efdd8;
+    margin-bottom: 0.8rem;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 4rem);
+    margin: 0;
+    line-height: 1.05;
+  }
+
+  .lead {
+    margin-top: 1rem;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: #b4f9e5;
+    max-width: 62ch;
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 1.6rem;
+  }
+
+  .btn {
+    text-decoration: none;
+    padding: 0.8rem 1.2rem;
+    border-radius: 999px;
+    font-weight: 600;
+    transition: transform 0.2s ease;
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .btn-primary {
+    background: #6ff6cf;
+    color: #05312d;
+  }
+
+  .btn-ghost {
+    border: 1px solid #8fffe0;
+    color: #ccffee;
+  }
+
+  .metrics {
+    margin: 2rem 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 0.9rem;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  }
+
+  .metrics li {
+    background: rgba(9, 42, 39, 0.55);
+    border: 1px solid rgba(129, 255, 220, 0.22);
+    border-radius: 14px;
+    padding: 0.9rem;
+  }
+
+  .metrics strong {
+    display: block;
+    font-size: 1.2rem;
+  }
+
+  .metrics span {
+    color: #befde9;
+    font-size: 0.92rem;
+  }
+
+  .halo {
+    position: absolute;
+    width: 360px;
+    height: 360px;
+    right: -80px;
+    top: -80px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(126, 253, 216, 0.55), rgba(126, 253, 216, 0));
+    filter: blur(8px);
+  }
+</style>

@@ -1,0 +1,88 @@
+<section class="hero-six">
+  <header>
+    <p class="kicker">Command Center Hero</p>
+    <h1>Una portada con muchos botones para rutas rápidas</h1>
+    <p>
+      Esta variante prioriza navegación inmediata: múltiples CTAs por intención (venta, soporte, demo,
+      comunidad, documentación, roadmap).
+    </p>
+  </header>
+
+  <div class="button-grid">
+    <a href="#">Comenzar ahora</a>
+    <a href="#">Reservar demo</a>
+    <a href="#">Comparar planes</a>
+    <a href="#">Ver plantillas</a>
+    <a href="#">Solicitar auditoría</a>
+    <a href="#">Entrar a comunidad</a>
+    <a href="#">Documentación</a>
+    <a href="#">Roadmap público</a>
+    <a href="#">Contactar ventas</a>
+    <a href="#">Hablar con soporte</a>
+    <a href="#">Centro de recursos</a>
+    <a href="#">Estado del sistema</a>
+  </div>
+</section>
+
+<style>
+  .hero-six {
+    border-radius: 28px;
+    padding: clamp(2rem, 5vw, 4rem);
+    background: linear-gradient(130deg, #111827 0%, #1f2937 45%, #0f172a 100%);
+    color: #f9fafb;
+    border: 1px solid #334155;
+  }
+
+  .kicker {
+    margin: 0;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #a5f3fc;
+    font-weight: 700;
+  }
+
+  h1 {
+    margin: 0.5rem 0;
+    font-size: clamp(1.9rem, 4.5vw, 3.4rem);
+    line-height: 1.08;
+  }
+
+  header p {
+    max-width: 64ch;
+    color: #cbd5e1;
+  }
+
+  .button-grid {
+    margin-top: 1.5rem;
+    display: grid;
+    gap: 0.7rem;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  }
+
+  .button-grid a {
+    text-decoration: none;
+    border-radius: 12px;
+    padding: 0.78rem 0.95rem;
+    color: #022c22;
+    background: linear-gradient(135deg, #99f6e4, #5eead4);
+    font-weight: 700;
+    border: 1px solid rgba(6, 95, 70, 0.28);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .button-grid a:nth-child(3n) {
+    background: linear-gradient(135deg, #bfdbfe, #93c5fd);
+    color: #172554;
+  }
+
+  .button-grid a:nth-child(4n) {
+    background: linear-gradient(135deg, #fde68a, #fdba74);
+    color: #78350f;
+  }
+
+  .button-grid a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.35);
+  }
+</style>

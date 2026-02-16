@@ -172,8 +172,11 @@ export function generateWrappers(config: GenerateWrappersConfig): GenerateWrappe
       const importPath = `./${ACTIVE_SECTIONS_DIR}/${fileName}`;
 
       const wrapperContent = [
+        '---',
         `import Section from "${templateRelImport}";`,
-        'export default Section;',
+        '---',
+        '',
+        '<Section />',
         '',
       ].join('\n');
 
