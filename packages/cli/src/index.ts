@@ -6,6 +6,7 @@ import { runAddCommand } from './commands/add';
 import { runDeployCommand } from './commands/deploy';
 import { runDoctorCommand } from './commands/doctor';
 import { runInitCommand } from './commands/init';
+import { runListCommand } from './commands/list';
 import { runMapCommand } from './commands/map';
 import { runRemoveCommand } from './commands/remove';
 import { runTutorialCommand } from './commands/tutorial';
@@ -14,6 +15,7 @@ function printHelp(): void {
   console.log(`\n${chalk.bold('Landmaker CLI')}\n`);
   console.log('Uso:');
   console.log(`  ${chalk.cyan('landmaker init')}  Crea o repara landmaker.config.json.`);
+  console.log(`  ${chalk.cyan('landmaker list')}   Lista secciones disponibles y recomienda una estructura completa.`);
   console.log(`  ${chalk.cyan('landmaker map')}   Muestra la estructura actual de páginas y secciones.`);
   console.log(`  ${chalk.cyan('landmaker doctor')}   Diagnostica inconsistencias entre config, wrappers, registry y plantillas.`);
   console.log(`  ${chalk.cyan('landmaker deploy')}   Limpia plantillas no utilizadas y regenera artefactos para producción.`);
@@ -41,6 +43,9 @@ function main(): void {
       return;
     case 'tutorial':
       void runTutorialCommand();
+      return;
+    case 'list':
+      runListCommand(process.cwd());
       return;
     case 'init':
       runInitCommand(process.cwd());
