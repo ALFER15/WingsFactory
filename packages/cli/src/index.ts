@@ -8,6 +8,7 @@ import { runDoctorCommand } from './commands/doctor';
 import { runInitCommand } from './commands/init';
 import { runMapCommand } from './commands/map';
 import { runRemoveCommand } from './commands/remove';
+import { runTutorialCommand } from './commands/tutorial';
 
 function printHelp(): void {
   console.log(`\n${chalk.bold('Landmaker CLI')}\n`);
@@ -16,6 +17,7 @@ function printHelp(): void {
   console.log(`  ${chalk.cyan('landmaker map')}   Muestra la estructura actual de páginas y secciones.`);
   console.log(`  ${chalk.cyan('landmaker doctor')}   Diagnostica inconsistencias entre config, wrappers, registry y plantillas.`);
   console.log(`  ${chalk.cyan('landmaker deploy')}   Limpia plantillas no utilizadas y regenera artefactos para producción.`);
+  console.log(`  ${chalk.cyan('landmaker tutorial')}   Abre el wizard visual de Landcelot con guía paso a paso.`);
   console.log(`  ${chalk.cyan('landmaker add <type> <variant> [theme]')}   Agrega una sección al final de home.`);
   console.log(`  ${chalk.cyan('landmaker remove <index>')}   Elimina una sección por índice (base 1).`);
 }
@@ -36,6 +38,9 @@ function main(): void {
       return;
     case 'deploy':
       void runDeployCommand(process.cwd());
+      return;
+    case 'tutorial':
+      void runTutorialCommand();
       return;
     case 'init':
       runInitCommand(process.cwd());
