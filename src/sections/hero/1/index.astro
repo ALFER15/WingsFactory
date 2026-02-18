@@ -1,21 +1,47 @@
-<section class="hero hero-one">
+<!--
+  HERO VARIANT 1 — Editorial con metricas
+  =========================================
+  Estilo: Fondo oscuro con acento esmeralda, composicion editorial dramatica.
+
+  ELEMENTOS A SUSTITUIR:
+  ┌─────────────────────────────────────────────────────────┐
+  │ .kicker          → Texto corto de categoria/etiqueta    │
+  │ h1               → Titulo principal del hero            │
+  │ .lead            → Parrafo descriptivo de apoyo         │
+  │ .btn-primary     → Texto + href del CTA principal       │
+  │ .btn-ghost       → Texto + href del CTA secundario      │
+  │ .metrics strong  → Cifra/dato destacado (x3)            │
+  │ .metrics span    → Descripcion de cada metrica (x3)     │
+  │ .halo            → Decorativo, no requiere sustitucion  │
+  └─────────────────────────────────────────────────────────┘
+-->
+
+<section class="hero-one">
   <div class="hero-inner">
-    <p class="kicker">Launch System</p>
-    <h1>Diseña una landing que convierta en minutos</h1>
+    <!-- KICKER: Etiqueta superior corta -->
+    <p class="kicker">Lorem Ipsum</p>
+
+    <!-- TITULO: Headline principal del hero -->
+    <h1>Dolor sit amet consectetur adipiscing elit sed do eiusmod</h1>
+
+    <!-- DESCRIPCION: Parrafo de apoyo bajo el titulo -->
     <p class="lead">
-      Hero editorial con composición dramática, contraste alto y una narrativa clara para abrir la página con
-      autoridad.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore
+      et dolore magna aliqua. Ut enim ad minim veniam quis nostrud.
     </p>
 
     <div class="actions">
-      <a href="#" class="btn btn-primary">Iniciar proyecto</a>
-      <a href="#" class="btn btn-ghost">Ver demo guiada</a>
+      <!-- CTA PRINCIPAL: Boton primario -->
+      <a href="#" class="btn btn-primary">Lorem Ipsum</a>
+      <!-- CTA SECUNDARIO: Boton ghost -->
+      <a href="#" class="btn btn-ghost">Dolor Sit</a>
     </div>
 
+    <!-- METRICAS: 3 bloques de dato + descripcion -->
     <ul class="metrics">
-      <li><strong>+214%</strong><span>CTR medio en primer bloque</span></li>
-      <li><strong>11 min</strong><span>Tiempo de armado inicial</span></li>
-      <li><strong>24/7</strong><span>Actualizaciones sin fricción</span></li>
+      <li><strong>+120%</strong><span>Lorem ipsum dolor sit</span></li>
+      <li><strong>14 min</strong><span>Consectetur adipiscing</span></li>
+      <li><strong>24/7</strong><span>Sed do eiusmod tempor</span></li>
     </ul>
   </div>
 
@@ -27,11 +53,9 @@
     position: relative;
     overflow: hidden;
     padding: clamp(3rem, 7vw, 6rem);
-    border-radius: 28px;
     color: #ecfff8;
     background: radial-gradient(circle at 80% -20%, #5eead4 0%, transparent 45%),
       linear-gradient(135deg, #052e2b 0%, #063c39 38%, #0f172a 100%);
-    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
   }
 
   .hero-inner {

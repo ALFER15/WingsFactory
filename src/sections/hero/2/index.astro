@@ -1,25 +1,57 @@
+<!--
+  HERO VARIANT 2 — Data Driven con panel lateral
+  ================================================
+  Estilo: Grid overlay violeta, layout 2 columnas con panel de datos.
+
+  ELEMENTOS A SUSTITUIR:
+  ┌─────────────────────────────────────────────────────────┐
+  │ .label           → Texto corto de categoria/etiqueta    │
+  │ h1               → Titulo principal del hero            │
+  │ .copy p          → Parrafo descriptivo de apoyo         │
+  │ .primary         → Texto + href del CTA principal       │
+  │ .secondary       → Texto + href del CTA secundario      │
+  │ .panel h2        → Titulo del panel lateral             │
+  │ .panel span      → Cifra/dato destacado (x3)            │
+  │ .panel small     → Descripcion de cada dato (x3)        │
+  │ .grid-overlay    → Decorativo, no requiere sustitucion  │
+  └─────────────────────────────────────────────────────────┘
+-->
+
 <section class="hero-two">
   <div class="grid-overlay" aria-hidden="true"></div>
 
   <div class="copy">
-    <p class="label">Data Driven Hero</p>
-    <h1>Transforma visitas frías en conversaciones de alto valor</h1>
+    <!-- LABEL: Etiqueta superior corta -->
+    <p class="label">Lorem Ipsum</p>
+
+    <!-- TITULO: Headline principal del hero -->
+    <h1>Consectetur adipiscing elit sed do eiusmod tempor incididunt</h1>
+
+    <!-- DESCRIPCION: Parrafo de apoyo -->
     <p>
-      Variante enfocada en SaaS B2B con storytelling orientado a resultados. Incluye tono analítico, bloques de
-      confianza y visual técnico para equipos comerciales.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore
+      et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation.
     </p>
+
     <div class="buttons">
-      <a href="#" class="primary">Agendar llamada</a>
-      <a href="#" class="secondary">Ver metodología</a>
+      <!-- CTA PRINCIPAL -->
+      <a href="#" class="primary">Lorem Ipsum</a>
+      <!-- CTA SECUNDARIO -->
+      <a href="#" class="secondary">Dolor Amet</a>
     </div>
   </div>
 
+  <!-- PANEL LATERAL: Bloque de datos/metricas -->
   <aside class="panel" aria-label="Panel de resultados">
-    <h2>Resumen de impacto</h2>
+    <!-- TITULO PANEL -->
+    <h2>Lorem de Ipsum</h2>
     <ul>
-      <li><span>32%</span><small>Más demos calificadas</small></li>
-      <li><span>19 días</span><small>Ciclo de cierre promedio</small></li>
-      <li><span>4.8/5</span><small>Satisfacción onboarding</small></li>
+      <!-- METRICA 1: Cifra + descripcion -->
+      <li><span>32%</span><small>Lorem ipsum dolor sit</small></li>
+      <!-- METRICA 2: Cifra + descripcion -->
+      <li><span>19</span><small>Consectetur adipiscing</small></li>
+      <!-- METRICA 3: Cifra + descripcion -->
+      <li><span>4.8/5</span><small>Sed do eiusmod tempor</small></li>
     </ul>
   </aside>
 </section>
@@ -33,9 +65,7 @@
     gap: 1.2rem;
     align-items: center;
     padding: clamp(2rem, 5vw, 4.5rem);
-    border-radius: 28px;
     background: linear-gradient(135deg, #0b1020, #1d1736 45%, #052e2b 100%);
-    border: 1px solid rgba(167, 139, 250, 0.24);
     color: #f5f3ff;
   }
 

@@ -1,21 +1,47 @@
+<!--
+  HERO VARIANT 3 — Split con carrusel lateral
+  =============================================
+  Estilo: Layout dividido, copy a la izquierda, carrusel vertical a la derecha.
+
+  ELEMENTOS A SUSTITUIR:
+  ┌─────────────────────────────────────────────────────────┐
+  │ .badge           → Texto corto de categoria/etiqueta    │
+  │ h1               → Titulo principal del hero            │
+  │ .left p          → Parrafo descriptivo de apoyo         │
+  │ .left a          → Texto + href del CTA                 │
+  │ .slides article  → Texto de cada slide del carrusel (x3)│
+  │ .divider         → Decorativo, no requiere sustitucion  │
+  └─────────────────────────────────────────────────────────┘
+-->
+
 <section class="hero-three">
   <div class="left">
-    <p class="badge">Split Narrative</p>
-    <h1>Una mitad vende, la otra demuestra</h1>
+    <!-- BADGE: Etiqueta superior corta -->
+    <p class="badge">Lorem Ipsum</p>
+
+    <!-- TITULO: Headline principal del hero -->
+    <h1>Dolor sit amet consectetur adipiscing elit</h1>
+
+    <!-- DESCRIPCION: Parrafo de apoyo -->
     <p>
-      Diseño con línea divisoria central: copy contundente del lado izquierdo y carrusel visual del lado derecho.
-      Ideal para explicar propuesta + mostrar estilo de marca.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore
+      et dolore magna aliqua ut enim ad minim veniam.
     </p>
-    <a href="#">Probar estructura</a>
+
+    <!-- CTA: Boton de accion -->
+    <a href="#">Lorem Ipsum</a>
   </div>
 
   <div class="divider" aria-hidden="true"></div>
 
   <div class="right">
     <div class="slides" aria-hidden="true">
-      <article>Panel de analítica en vivo</article>
-      <article>Vista de componentes reutilizables</article>
-      <article>Sistema de secciones escalable</article>
+      <!-- SLIDE 1: Texto o contenido del primer slide -->
+      <article>Lorem ipsum dolor sit amet</article>
+      <!-- SLIDE 2: Texto o contenido del segundo slide -->
+      <article>Consectetur adipiscing elit sed</article>
+      <!-- SLIDE 3: Texto o contenido del tercer slide -->
+      <article>Eiusmod tempor incididunt labore</article>
     </div>
   </div>
 </section>
@@ -27,9 +53,8 @@
     gap: 1.2rem;
     align-items: stretch;
     padding: clamp(2rem, 5vw, 4rem);
-    border-radius: 26px;
-    background: linear-gradient(135deg, #fff7ed, #f8fafc);
-    border: 1px solid #fed7aa;
+    background: linear-gradient(135deg, #1a0e2e, #1e1145 50%, #0c1a2e);
+    color: #f0e6ff;
   }
 
   .left {
@@ -40,7 +65,7 @@
 
   .badge {
     margin: 0;
-    color: #9a3412;
+    color: #c084fc;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -51,20 +76,20 @@
     margin: 0;
     font-size: clamp(1.8rem, 4vw, 3rem);
     line-height: 1.1;
-    color: #7c2d12;
+    color: #e9d5ff;
   }
 
-  p {
+  .left > p {
     margin: 0;
-    color: #7c2d12;
+    color: #c4b5fd;
     max-width: 44ch;
   }
 
-  a {
+  .left > a {
     justify-self: start;
     text-decoration: none;
-    color: #fff;
-    background: #ea580c;
+    color: #1e1b4b;
+    background: #c084fc;
     padding: 0.72rem 1.1rem;
     border-radius: 999px;
     font-weight: 600;
@@ -72,7 +97,7 @@
 
   .divider {
     width: 2px;
-    background: linear-gradient(#fdba74, #f97316, #fdba74);
+    background: linear-gradient(#c084fc, #7c3aed, #c084fc);
     border-radius: 999px;
   }
 
@@ -80,8 +105,8 @@
     min-height: 270px;
     overflow: hidden;
     border-radius: 18px;
-    border: 1px solid #fed7aa;
-    background: #fff;
+    border: 1px solid rgba(192, 132, 252, 0.3);
+    background: rgba(15, 10, 30, 0.6);
   }
 
   .slides {
@@ -94,8 +119,8 @@
     display: grid;
     place-content: center;
     font-weight: 700;
-    color: #9a3412;
-    background: linear-gradient(135deg, #fff7ed, #ffe8cc);
+    color: #e9d5ff;
+    background: linear-gradient(135deg, rgba(30, 17, 69, 0.8), rgba(20, 10, 50, 0.9));
     padding: 1.4rem;
     text-align: center;
   }

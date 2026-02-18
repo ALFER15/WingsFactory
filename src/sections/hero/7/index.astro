@@ -1,16 +1,39 @@
+<!--
+  HERO VARIANT 7 — Inmersivo neon con glass panel
+  =================================================
+  Estilo: Fondo oscuro con orbes neon flotantes, textura de ruido, panel glass.
+
+  ELEMENTOS A SUSTITUIR:
+  ┌──────────────────────────────────────────────────────────────┐
+  │ .label           → Texto corto de categoria/etiqueta         │
+  │ h1               → Titulo principal del hero                 │
+  │ .glass-panel > p → Parrafo descriptivo de apoyo              │
+  │ .stats span      → Cifra/dato destacado (x3)                 │
+  │ .stats small     → Descripcion de cada dato (x3)             │
+  │ .orb-a/b         → Decorativo, cambiar colores si necesario  │
+  │ .texture         → Decorativo, no requiere sustitucion       │
+  └──────────────────────────────────────────────────────────────┘
+-->
+
 <section class="hero-seven">
   <div class="glass-panel">
-    <p class="label">Immersive Neon</p>
-    <h1>Una hero inmersiva con texturas de ruido y capas neón</h1>
+    <!-- LABEL: Etiqueta superior corta -->
+    <p class="label">Lorem Ipsum</p>
+
+    <!-- TITULO: Headline principal del hero -->
+    <h1>Voluptate velit esse cillum dolore eu fugiat nulla pariatur</h1>
+
+    <!-- DESCRIPCION: Parrafo de apoyo -->
     <p>
-      Composición futurista con depth layers, blur y partículas simuladas para marcas que buscan una estética
-      high-tech.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore
+      et dolore magna aliqua. Excepteur sint occaecat cupidatat.
     </p>
 
+    <!-- STATS: 3 bloques de dato + descripcion -->
     <div class="stats">
-      <div><span>42</span><small>bloques listos</small></div>
-      <div><span>09</span><small>estilos de marca</small></div>
-      <div><span>3.4x</span><small>engagement inicial</small></div>
+      <div><span>42</span><small>Lorem ipsum dolor</small></div>
+      <div><span>09</span><small>Consectetur elit</small></div>
+      <div><span>3.4x</span><small>Adipiscing tempor</small></div>
     </div>
   </div>
 
@@ -23,7 +46,6 @@
   .hero-seven {
     position: relative;
     overflow: hidden;
-    border-radius: 30px;
     min-height: 430px;
     padding: clamp(2rem, 5vw, 4.5rem);
     background: radial-gradient(circle at 8% 12%, #312e81 0%, transparent 35%),
@@ -58,7 +80,7 @@
     line-height: 1.1;
   }
 
-  p {
+  .glass-panel > p {
     margin: 0;
     color: #dbeafe;
     max-width: 58ch;

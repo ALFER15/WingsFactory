@@ -1,22 +1,50 @@
+<!--
+  HERO VARIANT 4 — Fondo fotografico + logo animado
+  ===================================================
+  Estilo: Imagen de fondo con overlay oscuro, orbe/logo animado giratorio.
+
+  ELEMENTOS A SUSTITUIR:
+  ┌──────────────────────────────────────────────────────────────┐
+  │ .logo-orb span   → Letra o icono del logo animado           │
+  │ .tag             → Texto corto de categoria/etiqueta         │
+  │ h1               → Titulo principal del hero                 │
+  │ .content > p     → Parrafo descriptivo de apoyo              │
+  │ .actions a       → Texto + href de cada CTA (x2)             │
+  │ .hero-four       → Cambiar background-image por tu imagen    │
+  │ .overlay         → Decorativo, ajustar opacidad si necesario │
+  │ .logo-orb        → Decorativo animado, cambiar letra/colores │
+  └──────────────────────────────────────────────────────────────┘
+-->
+
 <section class="hero-four">
   <div class="overlay"></div>
 
   <div class="content">
+    <!-- LOGO ORB: Orbe animado con letra/icono central -->
     <div class="logo-orb" aria-hidden="true">
+      <!-- LOGO LETRA: Cambiar por inicial de marca -->
       <span>L</span>
       <i></i>
       <i></i>
     </div>
 
-    <p class="tag">Brand Story Hero</p>
-    <h1>Fondo fotográfico + logo animado para una marca memorable</h1>
+    <!-- TAG: Etiqueta superior corta -->
+    <p class="tag">Lorem Ipsum</p>
+
+    <!-- TITULO: Headline principal del hero -->
+    <h1>Ut enim ad minim veniam quis nostrud exercitation ullamco</h1>
+
+    <!-- DESCRIPCION: Parrafo de apoyo -->
     <p>
-      Esta versión se apoya en una imagen de fondo, contraste fuerte y un isotipo en movimiento continuo para
-      elevar recordación de marca.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore
+      et dolore magna aliqua. Duis aute irure dolor in reprehenderit.
     </p>
+
     <div class="actions">
-      <a href="#">Explorar catálogo</a>
-      <a href="#">Conocer historia</a>
+      <!-- CTA 1: Boton primario -->
+      <a href="#">Lorem Ipsum</a>
+      <!-- CTA 2: Boton secundario -->
+      <a href="#">Dolor Sit</a>
     </div>
   </div>
 </section>
@@ -25,9 +53,9 @@
   .hero-four {
     position: relative;
     overflow: hidden;
-    border-radius: 26px;
     padding: clamp(2.5rem, 6vw, 5rem);
     min-height: 440px;
+    /* IMAGEN DE FONDO: Sustituir URL por imagen propia */
     background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1500&q=80');
     background-size: cover;
     background-position: center;
@@ -90,7 +118,7 @@
     font-size: clamp(2rem, 5vw, 3.8rem);
   }
 
-  p {
+  .content > p {
     font-size: clamp(1rem, 2vw, 1.16rem);
     max-width: 58ch;
   }

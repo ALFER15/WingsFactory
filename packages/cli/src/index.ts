@@ -10,6 +10,7 @@ import { runListCommand } from './commands/list';
 import { runMapCommand } from './commands/map';
 import { runRemoveCommand } from './commands/remove';
 import { runTutorialCommand } from './commands/tutorial';
+import { runViewCommand } from './commands/view';
 
 function printHelp(): void {
   console.log(`\n${chalk.bold('Landmaker CLI')}\n`);
@@ -20,6 +21,7 @@ function printHelp(): void {
   console.log(`  ${chalk.cyan('landmaker doctor')}   Diagnostica inconsistencias entre config, wrappers, registry y plantillas.`);
   console.log(`  ${chalk.cyan('landmaker deploy')}   Limpia plantillas no utilizadas y regenera artefactos para producción.`);
   console.log(`  ${chalk.cyan('landmaker tutorial')}   Abre el wizard visual de Landcelot con guía paso a paso.`);
+  console.log(`  ${chalk.cyan('landmaker view <type> <variant>')}   Previsualiza una sección antes de agregarla.`);
   console.log(`  ${chalk.cyan('landmaker add <type> <variant> [theme]')}   Agrega una sección al final de home.`);
   console.log(`  ${chalk.cyan('landmaker remove <index>')}   Elimina una sección por índice (base 1).`);
 }
@@ -29,6 +31,9 @@ function main(): void {
   const args = process.argv.slice(3);
 
   switch (command) {
+    case 'view':
+      runViewCommand(args, process.cwd());
+      return;
     case 'add':
       runAddCommand(args, process.cwd());
       return;

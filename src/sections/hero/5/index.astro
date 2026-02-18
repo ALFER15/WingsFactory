@@ -1,18 +1,41 @@
+<!--
+  HERO VARIANT 5 — Carrusel de fondos
+  =====================================
+  Estilo: 3 capas de fondo que rotan con animacion, texto estable al frente.
+
+  ELEMENTOS A SUSTITUIR:
+  ┌──────────────────────────────────────────────────────────────┐
+  │ .eyebrow         → Texto corto de categoria/etiqueta         │
+  │ h1               → Titulo principal del hero                 │
+  │ .content > p     → Parrafo descriptivo de apoyo              │
+  │ .cta-row a       → Texto + href de cada CTA (x2)             │
+  │ .layer-a/b/c     → Decorativo, cambiar colores/gradientes    │
+  └──────────────────────────────────────────────────────────────┘
+-->
+
 <section class="hero-five">
   <div class="layer layer-a"></div>
   <div class="layer layer-b"></div>
   <div class="layer layer-c"></div>
 
   <div class="content">
-    <p class="eyebrow">Background Carousel Hero</p>
-    <h1>Un carrusel de fondos que cuenta una historia visual</h1>
+    <!-- EYEBROW: Etiqueta superior corta -->
+    <p class="eyebrow">Lorem Ipsum</p>
+
+    <!-- TITULO: Headline principal del hero -->
+    <h1>Excepteur sint occaecat cupidatat non proident sunt in culpa</h1>
+
+    <!-- DESCRIPCION: Parrafo de apoyo -->
     <p>
-      Este hero rota escenas de color y textura en segundo plano. El texto permanece estable para mantener
-      legibilidad mientras el entorno cambia.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore
+      et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation.
     </p>
+
     <div class="cta-row">
-      <a href="#">Ver casos</a>
-      <a href="#">Solicitar propuesta</a>
+      <!-- CTA 1: Boton primario -->
+      <a href="#">Lorem Ipsum</a>
+      <!-- CTA 2: Boton secundario -->
+      <a href="#">Dolor Sit</a>
     </div>
   </div>
 </section>
@@ -20,7 +43,6 @@
 <style>
   .hero-five {
     position: relative;
-    border-radius: 28px;
     overflow: hidden;
     min-height: 430px;
     padding: clamp(2.5rem, 6vw, 5rem);
@@ -76,7 +98,7 @@
     line-height: 1.08;
   }
 
-  p {
+  .content > p {
     max-width: 60ch;
     color: #e2e8f0;
   }

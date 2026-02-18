@@ -3,17 +3,12 @@
     "home": [
       {
         "type": "hero",
-        "variant": 2,
+        "variant": 1,
         "theme": "default"
       },
       {
         "type": "hero",
-        "variant": 2,
-        "theme": "default"
-      },
-      {
-        "type": "features",
-        "variant": 1,
+        "variant": 5,
         "theme": "default"
       }
     ]
