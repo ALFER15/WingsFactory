@@ -150,4 +150,29 @@
     background: radial-gradient(circle, rgba(126, 253, 216, 0.55), rgba(126, 253, 216, 0));
     filter: blur(8px);
   }
+
+  @media (max-width: 640px) {
+    .hero-one {
+      padding: clamp(2rem, 5vw, 3rem) 1rem;
+    }
+
+    .actions {
+      flex-direction: column;
+    }
+
+    .btn {
+      text-align: center;
+    }
+
+    .metrics {
+      grid-template-columns: 1fr;
+    }
+
+    .halo {
+      width: 200px;
+      height: 200px;
+      right: -40px;
+      top: -40px;
+    }
+  }
 </style>

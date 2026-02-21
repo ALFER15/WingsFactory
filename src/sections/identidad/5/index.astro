@@ -1,0 +1,152 @@
+<!--
+  IDENTIDAD VARIANT 5 — Sobre nosotros split con cifras
+  ========================================================
+  Estilo: Dos columnas, texto a la izquierda y cifras destacadas a la derecha.
+
+  ELEMENTOS A SUSTITUIR:
+  ┌──────────────────────────────────────────────────────────────┐
+  │ .eyebrow         → Texto corto de categoria/etiqueta         │
+  │ h2               → Titulo principal de la seccion             │
+  │ .body p          → Parrafos descriptivos (x2)                 │
+  │ .cta-link        → Texto + href del enlace                   │
+  │ .stat strong     → Cifra destacada (x4)                       │
+  │ .stat span       → Descripcion de la cifra (x4)               │
+  └──────────────────────────────────────────────────────────────┘
+-->
+
+<section class="id-five">
+  <div class="layout">
+    <div class="text-col">
+      <p class="eyebrow">Lorem Ipsum</p>
+      <h2>Quis nostrud exercitation ullamco laboris</h2>
+      <div class="body">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+      </div>
+      <a href="#" class="cta-link">Lorem ipsum dolor &rarr;</a>
+    </div>
+
+    <div class="stats-col">
+      <div class="stat">
+        <strong>+10</strong>
+        <span>Lorem Ipsum</span>
+      </div>
+      <div class="stat">
+        <strong>+500</strong>
+        <span>Dolor Sit Amet</span>
+      </div>
+      <div class="stat">
+        <strong>98%</strong>
+        <span>Consectetur Adipiscing</span>
+      </div>
+      <div class="stat">
+        <strong>24/7</strong>
+        <span>Eiusmod Tempor</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .id-five {
+    padding: clamp(3rem, 6vw, 5rem) clamp(1rem, 4vw, 2rem);
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: #e2e8f0;
+  }
+
+  .layout {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    align-items: center;
+  }
+
+  .eyebrow {
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #fb923c;
+  }
+
+  h2 {
+    margin: 0.5rem 0;
+    font-size: clamp(1.6rem, 4vw, 2.8rem);
+    line-height: 1.1;
+    color: #f1f5f9;
+  }
+
+  .body p {
+    margin: 0.8rem 0 0;
+    font-size: 0.95rem;
+    color: #94a3b8;
+    line-height: 1.6;
+    max-width: 50ch;
+  }
+
+  .cta-link {
+    display: inline-block;
+    margin-top: 1.5rem;
+    color: #fb923c;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: opacity 0.2s ease;
+  }
+
+  .cta-link:hover {
+    opacity: 0.8;
+  }
+
+  .stats-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+
+  .stat {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(251, 146, 60, 0.18);
+    border-radius: 16px;
+    padding: 1.5rem 1.2rem;
+    text-align: center;
+    transition: border-color 0.2s ease;
+  }
+
+  .stat:hover {
+    border-color: rgba(251, 146, 60, 0.45);
+  }
+
+  .stat strong {
+    display: block;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    color: #fb923c;
+    line-height: 1.2;
+    margin-bottom: 0.3rem;
+  }
+
+  .stat span {
+    font-size: 0.82rem;
+    color: #94a3b8;
+  }
+
+  @media (max-width: 768px) {
+    .layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .stats-col {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .stats-col {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

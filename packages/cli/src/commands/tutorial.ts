@@ -31,6 +31,38 @@ const STEPS: TutorialStep[] = [
     ],
   },
   {
+    title: 'Explora las plantillas disponibles',
+    command: 'landmaker list',
+    purpose: 'Escanea `src/sections` y muestra todas las secciones y variantes disponibles.',
+    usage: ['npm run landmaker -- list'],
+    notes: [
+      'Muestra cada type con sus variantes numeradas.',
+      'Incluye una recomendación de flujo para armar una página completa.',
+    ],
+  },
+  {
+    title: 'Galería visual de plantillas',
+    command: 'landmaker gallery',
+    purpose: 'Genera una página Astro temporal para previsualizar todas las secciones renderizadas.',
+    usage: ['npm run landmaker -- gallery'],
+    notes: [
+      'Abre http://localhost:4321/landmaker-gallery para ver el showroom.',
+      'Se elimina automáticamente al ejecutar `landmaker deploy`.',
+      'Ideal para elegir visualmente qué secciones agregar.',
+    ],
+  },
+  {
+    title: 'Previsualiza una sección',
+    command: 'landmaker view <type> <variant>',
+    purpose: 'Muestra la estructura HTML, colores, guía de sustitución y contenido placeholder de una sección.',
+    usage: ['npm run landmaker -- view hero 1', 'npm run landmaker -- view faq 3'],
+    notes: [
+      'Ideal para decidir qué variante usar antes de agregarla.',
+      'Muestra si la sección tiene media queries (responsive).',
+      'Combínalo con `list` o `gallery` para explorar opciones.',
+    ],
+  },
+  {
     title: 'Visualiza el mapa actual',
     command: 'landmaker map',
     purpose: 'Muestra el orden real de secciones por página (índices base 1).',
@@ -44,7 +76,7 @@ const STEPS: TutorialStep[] = [
     title: 'Agrega secciones',
     command: 'landmaker add <type> <variant> [theme]',
     purpose: 'Añade una sección al final de `home` y regenera artefactos automáticamente.',
-    usage: ['npm run landmaker -- add hero 2', 'npm run landmaker -- add contact 1 dark'],
+    usage: ['npm run landmaker -- add hero 2', 'npm run landmaker -- add faq 1 dark'],
     notes: [
       'No edita archivos de render manualmente: muta config + rebuild.',
       'Si falta una plantilla en `src/sections`, verás advertencias.',
@@ -73,11 +105,12 @@ const STEPS: TutorialStep[] = [
   {
     title: 'Optimiza para producción',
     command: 'landmaker deploy',
-    purpose: 'Elimina plantillas no usadas en `src/sections` y ejecuta rebuild final.',
+    purpose: 'Elimina plantillas no usadas en `src/sections` y ejecuta rebuild final. También borra la galería.',
     usage: ['npm run landmaker -- deploy'],
     notes: [
       'Pide confirmación antes de borrar.',
       'Conserva solo los type/variant activos definidos en config.',
+      'Elimina automáticamente la página de galería si existe.',
     ],
   },
   {
@@ -382,6 +415,46 @@ export async function runTutorialCommand(): Promise<void> {
       total: totalSteps,
       controls: chalk.cyan('Pulsa [s] para arrancar (o [q] para salir)'),
     });
+    const introAction1 = await waitForNextStep(0, totalSteps);
+    if (introAction1 === 'quit') {
+      renderDialogScene({
+        title: 'Tutorial pausado por el usuario',
+        subtitle: 'Puedes volver cuando quieras',
+        frame: FACE_FRAMES[1],
+        speech: ['Sin problema. Ejecuta `landmaker tutorial` cuando quieras continuar.'],
+        stepIndex: 0,
+        total: totalSteps,
+      });
+      return;
+    }
+
+    // Landcelot recommends a landing page structure
+    await animateLandcelotThinking(0, totalSteps, 'Analizando estructura ideal para tu landing...');
+    renderDialogScene({
+      title: 'Estructura recomendada para tu landing',
+      subtitle: 'Landcelot te sugiere este orden de secciones',
+      frame: FACE_FRAMES[2],
+      speech: [
+        'Antes de empezar, te recomiendo esta estructura para una landing efectiva:',
+      ],
+      details: [
+        '',
+        chalk.bold('Estructura recomendada:'),
+        `  ${chalk.hex('#7efdd8')('1.')} ${chalk.bold('hero')}        ${chalk.dim('— Primera impresión, headline + CTA')}`,
+        `  ${chalk.hex('#7efdd8')('2.')} ${chalk.bold('identidad')}   ${chalk.dim('— Quién eres, misión y valores')}`,
+        `  ${chalk.hex('#7efdd8')('3.')} ${chalk.bold('features')}    ${chalk.dim('— Beneficios o características clave')}`,
+        `  ${chalk.hex('#7efdd8')('4.')} ${chalk.bold('gallery')}     ${chalk.dim('— Portafolio visual o showcase')}`,
+        `  ${chalk.hex('#7efdd8')('5.')} ${chalk.bold('referencias')} ${chalk.dim('— Testimonios y casos de éxito')}`,
+        `  ${chalk.hex('#7efdd8')('6.')} ${chalk.bold('faq')}         ${chalk.dim('— Preguntas frecuentes')}`,
+        `  ${chalk.hex('#7efdd8')('7.')} ${chalk.bold('contact')}     ${chalk.dim('— Formulario o datos de contacto')}`,
+        '',
+        chalk.dim('Puedes usar `landmaker list` para ver variantes disponibles de cada tipo.'),
+        chalk.dim('O `landmaker gallery` para previsualizar todas las plantillas renderizadas.'),
+      ],
+      stepIndex: 0,
+      total: totalSteps,
+      controls: chalk.cyan('Pulsa [s] para continuar con los comandos'),
+    });
     const introAction = await waitForNextStep(0, totalSteps);
     if (introAction === 'quit') {
       renderDialogScene({
@@ -394,6 +467,7 @@ export async function runTutorialCommand(): Promise<void> {
       });
       return;
     }
+    // (Structure recommendation was shown above, now proceed to command steps)
 
     let currentStep = 0;
     while (currentStep < STEPS.length) {

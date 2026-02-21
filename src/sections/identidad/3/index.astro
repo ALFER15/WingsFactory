@@ -1,0 +1,155 @@
+<!--
+  IDENTIDAD VARIANT 3 — Equipo / Nosotros con fotos placeholder
+  ================================================================
+  Estilo: Grid de miembros del equipo con avatar placeholder y rol.
+
+  ELEMENTOS A SUSTITUIR:
+  ┌──────────────────────────────────────────────────────────────┐
+  │ .eyebrow         → Texto corto de categoria/etiqueta         │
+  │ h2               → Titulo principal de la seccion             │
+  │ .intro           → Parrafo descriptivo de apoyo              │
+  │ .member .avatar  → Iniciales o imagen (x4)                    │
+  │ .member h3       → Nombre del miembro (x4)                    │
+  │ .member .role    → Cargo del miembro (x4)                     │
+  │ .member .bio     → Descripcion breve (x4)                     │
+  └──────────────────────────────────────────────────────────────┘
+-->
+
+<section class="id-three">
+  <div class="header">
+    <p class="eyebrow">Lorem Ipsum</p>
+    <h2>Ut enim ad minim veniam quis nostrud</h2>
+    <p class="intro">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt.</p>
+  </div>
+
+  <div class="grid">
+    <div class="member">
+      <div class="avatar">LI</div>
+      <h3>Lorem Ipsum</h3>
+      <p class="role">Dolor Sit Amet</p>
+      <p class="bio">Consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore.</p>
+    </div>
+    <div class="member">
+      <div class="avatar">DS</div>
+      <h3>Dolor Sit</h3>
+      <p class="role">Amet Consectetur</p>
+      <p class="bio">Ut enim ad minim veniam quis nostrud exercitation ullamco laboris.</p>
+    </div>
+    <div class="member">
+      <div class="avatar">AC</div>
+      <h3>Amet Consectetur</h3>
+      <p class="role">Adipiscing Elit</p>
+      <p class="bio">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</p>
+    </div>
+    <div class="member">
+      <div class="avatar">EI</div>
+      <h3>Eiusmod Tempor</h3>
+      <p class="role">Incididunt Labore</p>
+      <p class="bio">Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .id-three {
+    padding: clamp(3rem, 6vw, 5rem) clamp(1rem, 4vw, 2rem);
+    background: linear-gradient(180deg, #111827 0%, #0a0a0f 100%);
+    color: #e2e8f0;
+  }
+
+  .header {
+    max-width: 680px;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+  }
+
+  .eyebrow {
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #5eead4;
+  }
+
+  h2 {
+    margin: 0.5rem 0;
+    font-size: clamp(1.6rem, 4vw, 2.8rem);
+    line-height: 1.1;
+    color: #f1f5f9;
+  }
+
+  .intro {
+    margin: 0;
+    color: #94a3b8;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .member {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(94, 234, 212, 0.15);
+    border-radius: 16px;
+    padding: 1.8rem 1.2rem;
+    text-align: center;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+
+  .member:hover {
+    transform: translateY(-3px);
+    border-color: rgba(94, 234, 212, 0.4);
+  }
+
+  .avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(94, 234, 212, 0.15);
+    color: #5eead4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin: 0 auto 1rem;
+  }
+
+  .member h3 {
+    margin: 0 0 0.2rem;
+    font-size: 1.05rem;
+    color: #f1f5f9;
+  }
+
+  .role {
+    margin: 0 0 0.6rem;
+    font-size: 0.82rem;
+    color: #5eead4;
+    font-weight: 600;
+  }
+
+  .bio {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #94a3b8;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 640px) {
+    .grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,291 @@
+import fs from 'node:fs';
+import path from 'node:path';
+
+import boxen from 'boxen';
+import chalk from 'chalk';
+
+const GALLERY_PAGE_FILE = 'landmaker-gallery.astro';
+const LEGACY_GALLERY_PAGE_FILE = '__landmaker_gallery.astro';
+
+function buildGalleryPageSource(): string {
+  return `---
+import Layout from '../layouts/Layout.astro';
+
+const modules = import.meta.glob('../sections/*/*/index.astro');
+const entries = Object.entries(modules);
+
+type GalleryItem = {
+  type: string;
+  variant: number;
+  file: string;
+  Component: unknown;
+};
+
+const items: GalleryItem[] = [];
+
+for (const [file, load] of entries) {
+  const normalizedFile = file.replaceAll('\\\\', '/');
+  const parts = normalizedFile.split('/');
+
+  // ../sections/<type>/<variant>/index.astro
+  const type = parts.at(-3);
+  const variantToken = parts.at(-2);
+  const variant = Number(variantToken);
+
+  if (typeof type !== 'string' || type.trim().length === 0) continue;
+  if (!Number.isInteger(variant) || variant <= 0) continue;
+
+  const mod = (await load()) as { default?: unknown };
+  if (!mod.default) continue;
+
+  items.push({ type, variant, file: normalizedFile, Component: mod.default });
+}
+
+items.sort((a, b) => a.type.localeCompare(b.type) || a.variant - b.variant);
+
+const groupMap = new Map<string, GalleryItem[]>();
+for (const item of items) {
+  const arr = groupMap.get(item.type) ?? [];
+  arr.push(item);
+  groupMap.set(item.type, arr);
+}
+
+const types = [...groupMap.keys()].sort((a, b) => a.localeCompare(b));
+---
+
+<Layout>
+  <main class="lm-gallery">
+    <header class="lm-header">
+      <h1>Landmaker Gallery</h1>
+      <p class="lm-subtitle">
+        Vista de todas las plantillas encontradas en <code>src/sections/&lt;type&gt;/&lt;variant&gt;/index.astro</code>.
+      </p>
+      <p class="lm-subtitle">
+        Para agregar una sección: <code>npm run landmaker -- add &lt;type&gt; &lt;variant&gt; [theme]</code>
+      </p>
+    </header>
+
+    {items.length === 0 ? (
+      <p class="lm-empty">No se encontraron plantillas en <code>src/sections</code>.</p>
+    ) : (
+      <nav class="lm-nav">
+        <span class="lm-nav-title">Tipos:</span>
+        {types.map((type) => (
+          <a class="lm-nav-link" href={'#type-' + type}>{type}</a>
+        ))}
+      </nav>
+    )}
+
+    {types.map((type) => (
+      <section class="lm-type" id={'type-' + type}>
+        <h2 class="lm-type-title">{type}</h2>
+        <div class="lm-variants">
+          {groupMap.get(type)?.map((item) => (
+            <article class="lm-variant">
+              <header class="lm-variant-header">
+                <h3 class="lm-variant-title">{item.type}/{item.variant}</h3>
+                <div class="lm-variant-meta">
+                  <code>npm run landmaker -- add {item.type} {item.variant}</code>
+                </div>
+                <div class="lm-variant-path">
+                  <span class="lm-dim">{item.file}</span>
+                </div>
+              </header>
+
+              <div class="lm-preview">
+                {(() => {
+                  const Component = item.Component as any;
+                  return <Component />;
+                })()}
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    ))}
+  </main>
+</Layout>
+
+<style>
+  .lm-gallery {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem 4rem;
+  }
+
+  .lm-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .lm-subtitle {
+    margin: 0.25rem 0;
+    color: rgba(226, 232, 240, 0.8);
+  }
+
+  .lm-empty {
+    padding: 1.25rem;
+    border: 1px solid rgba(148, 163, 184, 0.25);
+    border-radius: 12px;
+    background: rgba(15, 23, 42, 0.65);
+  }
+
+  .lm-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    align-items: center;
+    margin: 1rem 0 2rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid rgba(148, 163, 184, 0.25);
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.65);
+  }
+
+  .lm-nav-title {
+    color: rgba(226, 232, 240, 0.7);
+    font-size: 0.9rem;
+  }
+
+  .lm-nav-link {
+    color: #7efdd8;
+    text-decoration: none;
+    font-size: 0.95rem;
+  }
+
+  .lm-nav-link:hover {
+    text-decoration: underline;
+  }
+
+  .lm-type {
+    margin-top: 2.5rem;
+  }
+
+  .lm-type-title {
+    margin: 0 0 1rem;
+    font-size: 1.4rem;
+  }
+
+  .lm-variants {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .lm-variant {
+    border: 1px solid rgba(148, 163, 184, 0.25);
+    border-radius: 16px;
+    overflow: hidden;
+    background: rgba(2, 6, 23, 0.35);
+  }
+
+  .lm-variant-header {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+    background: rgba(15, 23, 42, 0.65);
+  }
+
+  .lm-variant-title {
+    margin: 0;
+    font-size: 1.05rem;
+  }
+
+  .lm-variant-meta {
+    margin-top: 0.5rem;
+    color: rgba(226, 232, 240, 0.85);
+  }
+
+  .lm-variant-path {
+    margin-top: 0.35rem;
+  }
+
+  .lm-dim {
+    color: rgba(226, 232, 240, 0.6);
+    font-size: 0.9rem;
+  }
+
+  .lm-preview {
+    padding: 0;
+  }
+
+  @media (min-width: 900px) {
+    .lm-variants {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+`;
+}
+
+export function runGalleryCommand(cwd: string = process.cwd()): void {
+  const sectionsRoot = path.join(cwd, 'src', 'sections');
+  if (!fs.existsSync(sectionsRoot)) {
+    const content = [
+      chalk.bold('Landmaker gallery'),
+      '',
+      chalk.red('No se encontró la carpeta src/sections en este proyecto.'),
+      chalk.dim('Sugerencia: ejecuta este comando en la raíz del sitio (donde existe src/sections).'),
+    ].join('\n');
+
+    console.log(
+      boxen(content, {
+        padding: 1,
+        borderStyle: 'round',
+        borderColor: 'red',
+      })
+    );
+    return;
+  }
+
+  const pagesDir = path.join(cwd, 'src', 'pages');
+  const legacyPath = path.join(pagesDir, LEGACY_GALLERY_PAGE_FILE);
+  const targetPath = path.join(pagesDir, GALLERY_PAGE_FILE);
+
+  try {
+    fs.mkdirSync(pagesDir, { recursive: true });
+
+    try {
+      if (fs.existsSync(legacyPath)) {
+        fs.unlinkSync(legacyPath);
+      }
+    } catch {
+      // Ignorar: no es crítico para generar el showroom nuevo.
+    }
+
+    fs.writeFileSync(targetPath, buildGalleryPageSource(), 'utf8');
+
+    const content = [
+      chalk.bold('Landmaker gallery'),
+      '',
+      chalk.green('Showroom generado.'),
+      chalk.dim(`Archivo: ${path.relative(cwd, targetPath).replace(/\\/g, '/')}`),
+      chalk.dim('Ruta: /landmaker-gallery'),
+      '',
+      chalk.dim('Tip: ejecuta `npm run dev` y abre http://localhost:4321/landmaker-gallery'),
+      chalk.dim('Este archivo se elimina automáticamente al ejecutar `landmaker deploy`.'),
+    ].join('\n');
+
+    console.log(
+      boxen(content, {
+        padding: 1,
+        borderStyle: 'round',
+        borderColor: 'green',
+      })
+    );
+  } catch {
+    const content = [
+      chalk.bold('Landmaker gallery'),
+      '',
+      chalk.red('No se pudo generar la página showroom.'),
+      chalk.dim('Sugerencia: verifica permisos de escritura en src/pages.'),
+    ].join('\n');
+
+    console.log(
+      boxen(content, {
+        padding: 1,
+        borderStyle: 'round',
+        borderColor: 'red',
+      })
+    );
+  }
+}

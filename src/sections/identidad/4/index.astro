@@ -1,0 +1,153 @@
+<!--
+  IDENTIDAD VARIANT 4 — Valores con iconos grandes
+  ===================================================
+  Estilo: Valores de marca en grid horizontal con icono grande y descripcion.
+
+  ELEMENTOS A SUSTITUIR:
+  ┌──────────────────────────────────────────────────────────────┐
+  │ .eyebrow         → Texto corto de categoria/etiqueta         │
+  │ h2               → Titulo principal de la seccion             │
+  │ .intro           → Parrafo descriptivo de apoyo              │
+  │ .value .icon     → Emoji o icono de cada valor (x4)           │
+  │ .value h3        → Titulo de cada valor (x4)                  │
+  │ .value p         → Descripcion de cada valor (x4)             │
+  └──────────────────────────────────────────────────────────────┘
+-->
+
+<section class="id-four">
+  <div class="header">
+    <p class="eyebrow">Lorem Ipsum</p>
+    <h2>Nemo enim ipsam voluptatem quia voluptas</h2>
+    <p class="intro">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor.</p>
+  </div>
+
+  <div class="values">
+    <div class="value">
+      <div class="icon-wrap">
+        <span class="icon">&#9670;</span>
+      </div>
+      <h3>Lorem Ipsum</h3>
+      <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam.</p>
+    </div>
+    <div class="value">
+      <div class="icon-wrap">
+        <span class="icon">&#9733;</span>
+      </div>
+      <h3>Dolor Sit Amet</h3>
+      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla.</p>
+    </div>
+    <div class="value">
+      <div class="icon-wrap">
+        <span class="icon">&#9679;</span>
+      </div>
+      <h3>Consectetur Adipiscing</h3>
+      <p>Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim.</p>
+    </div>
+    <div class="value">
+      <div class="icon-wrap">
+        <span class="icon">&#9656;</span>
+      </div>
+      <h3>Eiusmod Tempor</h3>
+      <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .id-four {
+    padding: clamp(3rem, 6vw, 5rem) clamp(1rem, 4vw, 2rem);
+    background: linear-gradient(180deg, #0a0a0f 0%, #1e1b4b 50%, #0a0a0f 100%);
+    color: #e2e8f0;
+  }
+
+  .header {
+    max-width: 680px;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+  }
+
+  .eyebrow {
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #c084fc;
+  }
+
+  h2 {
+    margin: 0.5rem 0;
+    font-size: clamp(1.6rem, 4vw, 2.8rem);
+    line-height: 1.1;
+    color: #f1f5f9;
+  }
+
+  .intro {
+    margin: 0;
+    color: #94a3b8;
+  }
+
+  .values {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .value {
+    text-align: center;
+    padding: 1.5rem 1rem;
+  }
+
+  .icon-wrap {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    background: rgba(192, 132, 252, 0.12);
+    border: 1px solid rgba(192, 132, 252, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    transition: transform 0.2s ease;
+  }
+
+  .value:hover .icon-wrap {
+    transform: scale(1.08);
+  }
+
+  .icon {
+    font-size: 1.6rem;
+    color: #c084fc;
+  }
+
+  .value h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.1rem;
+    color: #f1f5f9;
+  }
+
+  .value p {
+    margin: 0;
+    font-size: 0.92rem;
+    color: #94a3b8;
+    line-height: 1.55;
+    max-width: 30ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (max-width: 640px) {
+    .values {
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .values {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

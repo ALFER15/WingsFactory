@@ -1,0 +1,178 @@
+<!--
+  REFERENCIAS VARIANT 5 — Estadisticas + testimonios compactos
+  ==============================================================
+  Estilo: Barra de estadisticas arriba, testimonios compactos abajo.
+
+  ELEMENTOS A SUSTITUIR:
+  ┌──────────────────────────────────────────────────────────────┐
+  │ .eyebrow         → Texto corto de categoria/etiqueta         │
+  │ h2               → Titulo principal de la seccion             │
+  │ .stat strong     → Cifra destacada (x3)                       │
+  │ .stat span       → Descripcion de la cifra (x3)               │
+  │ .card blockquote → Texto del testimonio (x3)                  │
+  │ .card .name      → Nombre de la persona (x3)                  │
+  │ .card .role      → Cargo o empresa (x3)                       │
+  └──────────────────────────────────────────────────────────────┘
+-->
+
+<section class="ref-five">
+  <div class="header">
+    <p class="eyebrow">Lorem Ipsum</p>
+    <h2>Tempor incididunt ut labore et dolore</h2>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <strong>+500</strong>
+      <span>Lorem Ipsum</span>
+    </div>
+    <div class="stat">
+      <strong>98%</strong>
+      <span>Dolor Sit Amet</span>
+    </div>
+    <div class="stat">
+      <strong>4.9/5</strong>
+      <span>Consectetur Adipiscing</span>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.</blockquote>
+      <div class="meta">
+        <p class="name">Lorem Ipsum</p>
+        <p class="role">Dolor Sit</p>
+      </div>
+    </div>
+    <div class="card">
+      <blockquote>Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi.</blockquote>
+      <div class="meta">
+        <p class="name">Amet Consectetur</p>
+        <p class="role">Adipiscing Elit</p>
+      </div>
+    </div>
+    <div class="card">
+      <blockquote>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</blockquote>
+      <div class="meta">
+        <p class="name">Eiusmod Tempor</p>
+        <p class="role">Incididunt Labore</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .ref-five {
+    padding: clamp(3rem, 6vw, 5rem) clamp(1rem, 4vw, 2rem);
+    background: linear-gradient(180deg, #0a0a0f 0%, #111827 100%);
+    color: #e2e8f0;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .eyebrow {
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #22d3ee;
+  }
+
+  h2 {
+    margin: 0.5rem 0;
+    font-size: clamp(1.6rem, 4vw, 2.8rem);
+    line-height: 1.1;
+    color: #f1f5f9;
+  }
+
+  .stats {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+    padding: 1.5rem;
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid rgba(34, 211, 238, 0.15);
+    border-radius: 16px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .stat {
+    text-align: center;
+    min-width: 100px;
+  }
+
+  .stat strong {
+    display: block;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    color: #22d3ee;
+    line-height: 1.2;
+  }
+
+  .stat span {
+    font-size: 0.82rem;
+    color: #94a3b8;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .card {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(34, 211, 238, 0.12);
+    border-radius: 14px;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.8rem;
+  }
+
+  blockquote {
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: #cbd5e1;
+    font-style: italic;
+  }
+
+  .meta {
+    border-top: 1px solid rgba(34, 211, 238, 0.1);
+    padding-top: 0.6rem;
+  }
+
+  .name {
+    margin: 0;
+    font-weight: 600;
+    font-size: 0.88rem;
+    color: #f1f5f9;
+  }
+
+  .role {
+    margin: 0.1rem 0 0;
+    font-size: 0.78rem;
+    color: #94a3b8;
+  }
+
+  @media (max-width: 640px) {
+    .stats {
+      gap: 1.2rem;
+    }
+
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

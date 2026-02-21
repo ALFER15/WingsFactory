@@ -1,0 +1,149 @@
+<!--
+  REFERENCIAS VARIANT 2 — Carrusel horizontal de testimonios
+  =============================================================
+  Estilo: Scroll horizontal con tarjetas anchas, fondo degradado azul.
+
+  ELEMENTOS A SUSTITUIR:
+  ┌──────────────────────────────────────────────────────────────┐
+  │ .eyebrow         → Texto corto de categoria/etiqueta         │
+  │ h2               → Titulo principal de la seccion             │
+  │ .card blockquote → Texto del testimonio (x4)                  │
+  │ .card .name      → Nombre de la persona (x4)                  │
+  │ .card .role      → Cargo o empresa (x4)                       │
+  │ .card .stars     → Cantidad de estrellas (x4)                  │
+  └──────────────────────────────────────────────────────────────┘
+-->
+
+<section class="ref-two">
+  <div class="header">
+    <p class="eyebrow">Lorem Ipsum</p>
+    <h2>Ut enim ad minim veniam quis nostrud</h2>
+  </div>
+
+  <div class="scroll-track">
+    <div class="card">
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</blockquote>
+      <p class="name">Lorem Ipsum</p>
+      <p class="role">Dolor Sit Amet</p>
+    </div>
+    <div class="card">
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <blockquote>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur.</blockquote>
+      <p class="name">Dolor Sit</p>
+      <p class="role">Consectetur Adipiscing</p>
+    </div>
+    <div class="card">
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+      <blockquote>Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum.</blockquote>
+      <p class="name">Amet Consectetur</p>
+      <p class="role">Eiusmod Tempor</p>
+    </div>
+    <div class="card">
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <blockquote>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem.</blockquote>
+      <p class="name">Adipiscing Elit</p>
+      <p class="role">Incididunt Labore</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .ref-two {
+    padding: clamp(3rem, 6vw, 5rem) 0;
+    background: linear-gradient(180deg, #0a0a0f 0%, #1e1b4b 50%, #0a0a0f 100%);
+    color: #e2e8f0;
+    overflow: hidden;
+  }
+
+  .header {
+    max-width: 680px;
+    margin-bottom: 2rem;
+    padding: 0 clamp(1rem, 4vw, 2rem);
+  }
+
+  .eyebrow {
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #818cf8;
+  }
+
+  h2 {
+    margin: 0.5rem 0;
+    font-size: clamp(1.6rem, 4vw, 2.8rem);
+    line-height: 1.1;
+    color: #f1f5f9;
+  }
+
+  .scroll-track {
+    display: flex;
+    gap: 1.25rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 0 clamp(1rem, 4vw, 2rem) 1rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .scroll-track::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .scroll-track::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+  }
+
+  .scroll-track::-webkit-scrollbar-thumb {
+    background: rgba(129, 140, 248, 0.4);
+    border-radius: 3px;
+  }
+
+  .card {
+    flex: 0 0 min(340px, 85vw);
+    scroll-snap-align: start;
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(129, 140, 248, 0.2);
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .stars {
+    color: #fbbf24;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+  }
+
+  blockquote {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #cbd5e1;
+    font-style: italic;
+    flex: 1;
+  }
+
+  .name {
+    margin: 0;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #f1f5f9;
+  }
+
+  .role {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #94a3b8;
+  }
+
+  @media (max-width: 640px) {
+    .card {
+      flex: 0 0 85vw;
+    }
+  }
+</style>

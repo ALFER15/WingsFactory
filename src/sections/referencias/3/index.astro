@@ -1,0 +1,159 @@
+<!--
+  REFERENCIAS VARIANT 3 — Testimonio destacado grande
+  =====================================================
+  Estilo: Un testimonio grande centrado con comillas decorativas.
+
+  ELEMENTOS A SUSTITUIR:
+  ┌──────────────────────────────────────────────────────────────┐
+  │ .eyebrow         → Texto corto de categoria/etiqueta         │
+  │ blockquote       → Texto del testimonio principal             │
+  │ .name            → Nombre de la persona                       │
+  │ .role            → Cargo o empresa                            │
+  │ .avatar          → Iniciales o imagen                         │
+  │ .logo-row span   → Nombres de empresas/logos (x4)             │
+  └──────────────────────────────────────────────────────────────┘
+-->
+
+<section class="ref-three">
+  <p class="eyebrow">Lorem Ipsum</p>
+
+  <div class="quote-wrap">
+    <span class="deco" aria-hidden="true">&ldquo;</span>
+    <blockquote>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+      incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+      exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </blockquote>
+  </div>
+
+  <div class="author">
+    <span class="avatar">LI</span>
+    <div>
+      <p class="name">Lorem Ipsum Dolor</p>
+      <p class="role">Sit Amet Consectetur — Adipiscing Elit</p>
+    </div>
+  </div>
+
+  <div class="logo-row">
+    <span>Lorem Corp</span>
+    <span>Ipsum Inc</span>
+    <span>Dolor Ltd</span>
+    <span>Sit Amet Co</span>
+  </div>
+</section>
+
+<style>
+  .ref-three {
+    padding: clamp(3rem, 8vw, 6rem) clamp(1rem, 4vw, 2rem);
+    background: #0a0a0f;
+    color: #e2e8f0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .eyebrow {
+    margin: 0 0 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #34d399;
+  }
+
+  .quote-wrap {
+    position: relative;
+    max-width: 750px;
+  }
+
+  .deco {
+    position: absolute;
+    top: -1.2rem;
+    left: -0.5rem;
+    font-size: 5rem;
+    line-height: 1;
+    color: rgba(52, 211, 153, 0.2);
+    font-family: Georgia, serif;
+    pointer-events: none;
+  }
+
+  blockquote {
+    margin: 0;
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    line-height: 1.6;
+    color: #f1f5f9;
+    font-style: italic;
+  }
+
+  .author {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 2rem;
+  }
+
+  .avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(52, 211, 153, 0.2);
+    color: #34d399;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+
+  .name {
+    margin: 0;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #f1f5f9;
+  }
+
+  .role {
+    margin: 0.15rem 0 0;
+    font-size: 0.82rem;
+    color: #94a3b8;
+  }
+
+  .logo-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(52, 211, 153, 0.15);
+    width: 100%;
+    max-width: 600px;
+  }
+
+  .logo-row span {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #475569;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 640px) {
+    .deco {
+      font-size: 3.5rem;
+      top: -0.8rem;
+      left: 0;
+    }
+
+    .author {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .logo-row {
+      gap: 1rem;
+    }
+  }
+</style>

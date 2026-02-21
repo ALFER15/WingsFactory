@@ -1,0 +1,157 @@
+<!--
+  REFERENCIAS VARIANT 1 — Tarjetas de testimonios
+  ==================================================
+  Estilo: Grid de tarjetas con cita, nombre y rol sobre fondo oscuro.
+
+  ELEMENTOS A SUSTITUIR:
+  ┌──────────────────────────────────────────────────────────────┐
+  │ .eyebrow         → Texto corto de categoria/etiqueta         │
+  │ h2               → Titulo principal de la seccion             │
+  │ .intro           → Parrafo descriptivo de apoyo              │
+  │ .card blockquote → Texto del testimonio (x3)                  │
+  │ .card .name      → Nombre de la persona (x3)                  │
+  │ .card .role      → Cargo o empresa (x3)                       │
+  │ .card .avatar    → Iniciales o imagen (x3)                    │
+  └──────────────────────────────────────────────────────────────┘
+-->
+
+<section class="ref-one">
+  <div class="header">
+    <p class="eyebrow">Lorem Ipsum</p>
+    <h2>Quis nostrud exercitation ullamco laboris</h2>
+    <p class="intro">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam quis nostrud exercitation.</blockquote>
+      <div class="author">
+        <span class="avatar">LI</span>
+        <div>
+          <p class="name">Lorem Ipsum</p>
+          <p class="role">Dolor Sit Amet</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <blockquote>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</blockquote>
+      <div class="author">
+        <span class="avatar">DS</span>
+        <div>
+          <p class="name">Dolor Sit</p>
+          <p class="role">Consectetur Adipiscing</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <blockquote>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est.</blockquote>
+      <div class="author">
+        <span class="avatar">AC</span>
+        <div>
+          <p class="name">Amet Consectetur</p>
+          <p class="role">Eiusmod Tempor</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .ref-one {
+    padding: clamp(3rem, 6vw, 5rem) clamp(1rem, 4vw, 2rem);
+    background: linear-gradient(180deg, #0f172a 0%, #0a0a0f 100%);
+    color: #e2e8f0;
+  }
+
+  .header {
+    max-width: 680px;
+    margin-bottom: 2.5rem;
+  }
+
+  .eyebrow {
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #f59e0b;
+  }
+
+  h2 {
+    margin: 0.5rem 0;
+    font-size: clamp(1.6rem, 4vw, 2.8rem);
+    line-height: 1.1;
+    color: #f1f5f9;
+  }
+
+  .intro {
+    margin: 0;
+    color: #94a3b8;
+    max-width: 55ch;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .card {
+    background: rgba(15, 23, 42, 0.65);
+    border: 1px solid rgba(245, 158, 11, 0.18);
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  blockquote {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #cbd5e1;
+    font-style: italic;
+  }
+
+  .author {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(245, 158, 11, 0.2);
+    color: #f59e0b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+  }
+
+  .name {
+    margin: 0;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #f1f5f9;
+  }
+
+  .role {
+    margin: 0.1rem 0 0;
+    font-size: 0.8rem;
+    color: #94a3b8;
+  }
+
+  @media (max-width: 640px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

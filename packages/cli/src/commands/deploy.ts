@@ -117,6 +117,20 @@ function printAbort(message: string): void {
 
 export async function runDeployCommand(cwd: string = process.cwd()): Promise<void> {
   try {
+    const galleryFiles = [
+      path.join(cwd, 'src', 'pages', '__landmaker_gallery.astro'),
+      path.join(cwd, 'src', 'pages', 'landmaker-gallery.astro'),
+    ];
+    try {
+      for (const galleryFile of galleryFiles) {
+        if (fs.existsSync(galleryFile)) {
+          fs.rmSync(galleryFile, { force: true });
+        }
+      }
+    } catch {
+      // Ignorar: deploy no debe fallar por artefactos de preview.
+    }
+
     console.log(chalk.bold('\nDiagnóstico previo (modo doctor):\n'));
     runDoctorCommand(cwd);
 

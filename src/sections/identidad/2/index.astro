@@ -1,0 +1,164 @@
+<!--
+  IDENTIDAD VARIANT 2 — Historia con timeline
+  ==============================================
+  Estilo: Timeline vertical con hitos de la empresa/marca.
+
+  ELEMENTOS A SUSTITUIR:
+  ┌──────────────────────────────────────────────────────────────┐
+  │ .eyebrow         → Texto corto de categoria/etiqueta         │
+  │ h2               → Titulo principal de la seccion             │
+  │ .intro           → Parrafo descriptivo de apoyo              │
+  │ .milestone .year → Ano o fecha del hito (x4)                  │
+  │ .milestone h3    → Titulo del hito (x4)                       │
+  │ .milestone p     → Descripcion del hito (x4)                  │
+  └──────────────────────────────────────────────────────────────┘
+-->
+
+<section class="id-two">
+  <div class="header">
+    <p class="eyebrow">Lorem Ipsum</p>
+    <h2>Sed do eiusmod tempor incididunt</h2>
+    <p class="intro">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  </div>
+
+  <div class="timeline">
+    <div class="milestone">
+      <span class="year">2018</span>
+      <div class="content">
+        <h3>Lorem Ipsum Dolor</h3>
+        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud.</p>
+      </div>
+    </div>
+    <div class="milestone">
+      <span class="year">2020</span>
+      <div class="content">
+        <h3>Amet Consectetur</h3>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+      </div>
+    </div>
+    <div class="milestone">
+      <span class="year">2022</span>
+      <div class="content">
+        <h3>Adipiscing Elit Sed</h3>
+        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est.</p>
+      </div>
+    </div>
+    <div class="milestone">
+      <span class="year">2024</span>
+      <div class="content">
+        <h3>Eiusmod Tempor</h3>
+        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .id-two {
+    padding: clamp(3rem, 6vw, 5rem) clamp(1rem, 4vw, 2rem);
+    background: #0a0a0f;
+    color: #e2e8f0;
+  }
+
+  .header {
+    max-width: 680px;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+  }
+
+  .eyebrow {
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #a78bfa;
+  }
+
+  h2 {
+    margin: 0.5rem 0;
+    font-size: clamp(1.6rem, 4vw, 2.8rem);
+    line-height: 1.1;
+    color: #f1f5f9;
+  }
+
+  .intro {
+    margin: 0;
+    color: #94a3b8;
+  }
+
+  .timeline {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    padding-left: 2rem;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, #a78bfa, rgba(167, 139, 250, 0.15));
+  }
+
+  .milestone {
+    position: relative;
+    padding: 0 0 2.5rem 2rem;
+  }
+
+  .milestone:last-child {
+    padding-bottom: 0;
+  }
+
+  .milestone::before {
+    content: '';
+    position: absolute;
+    left: -2rem;
+    top: 0.35rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #a78bfa;
+    border: 2px solid #0a0a0f;
+    transform: translateX(-5px);
+  }
+
+  .year {
+    display: inline-block;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #a78bfa;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.3rem;
+  }
+
+  .content h3 {
+    margin: 0 0 0.4rem;
+    font-size: 1.1rem;
+    color: #f1f5f9;
+  }
+
+  .content p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #94a3b8;
+    line-height: 1.55;
+  }
+
+  @media (max-width: 640px) {
+    .timeline {
+      padding-left: 1.5rem;
+    }
+
+    .milestone {
+      padding-left: 1.5rem;
+    }
+
+    .milestone::before {
+      left: -1.5rem;
+    }
+  }
+</style>
