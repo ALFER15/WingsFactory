@@ -1,0 +1,127 @@
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="/images/1780217112015.png" alt="Wings Factory" class="footer-logo" />
+      <p class="footer-tagline">Alitas · Cerveza · Deportes</p>
+      <p class="footer-address">Plaza Jardines, Prol. Av. Zaragoza 99<br/>Jardines de la Hacienda, Querétaro</p>
+    </div>
+
+    <div class="footer-col">
+      <h4 class="footer-col-title">NAVEGAR</h4>
+      <a href="#sabores">Salsas</a>
+      <a href="#experiencia">Experiencia</a>
+      <a href="#ubicacion">Ubicación</a>
+      <a href="#faq">FAQ</a>
+    </div>
+
+    <div class="footer-col">
+      <h4 class="footer-col-title">PEDIR</h4>
+      <a href="https://api.whatsapp.com/send?phone=%2B524461199994" target="_blank">WhatsApp</a>
+      <a href="https://web.didiglobal.com/mx/food/queretaro-que/wings-factory-jardines/5764607612122038484/" target="_blank">DiDi Food</a>
+      <a href="https://www.rappi.com.mx/restaurantes/1923206707-wings-factory" target="_blank">Rappi</a>
+      <a href="https://www.ubereats.com/mx/store/wings-factory-jardines-de-la-hacienda/HOR4ndKDRj-aCgyBbE-6Qg" target="_blank">Uber Eats</a>
+    </div>
+
+    <div class="footer-col">
+      <h4 class="footer-col-title">SÍGUENOS</h4>
+      <a href="https://www.instagram.com/wf_queretaro/" target="_blank">Instagram</a>
+      <a href="https://www.facebook.com/WFQUERETARO/" target="_blank">Facebook</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 Wings Factory Querétaro · Todos los derechos reservados</p>
+  </div>
+</footer>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+  .footer {
+    background: #000;
+    border-top: 3px solid #FFC107;
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 7vw, 6rem);
+  }
+
+  .footer-logo {
+    height: 52px;
+    width: auto;
+    display: block;
+    filter: brightness(0) invert(1);
+    margin-bottom: 1rem;
+  }
+
+  .footer-tagline {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.85rem;
+    color: #FFC107;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0 0 0.75rem;
+  }
+
+  .footer-address {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.3);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .footer-col-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.3);
+    text-transform: uppercase;
+    margin: 0 0 0.5rem;
+    font-weight: 600;
+  }
+
+  .footer-col a {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-col a:hover { color: #FFC107; }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 1.25rem clamp(1.5rem, 7vw, 6rem);
+    text-align: center;
+  }
+
+  .footer-bottom p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.2);
+    margin: 0;
+  }
+
+  @media (max-width: 900px) {
+    .footer-top { grid-template-columns: 1fr 1fr; }
+    .footer-brand { grid-column: 1 / -1; }
+  }
+
+  @media (max-width: 500px) {
+    .footer-top { grid-template-columns: 1fr; }
+  }
+</style>

@@ -1,150 +1,294 @@
-<!--
-  FEATURES VARIANT 1 — Grid de caracteristicas
-  ===============================================
-  Estilo: Fondo oscuro con grid de tarjetas de features/beneficios.
+<!-- SECCIÓN: Salsas / Sabores — Grid de tarjetas premium -->
+<section class="salsas" id="sabores">
+  <div class="salsas-inner">
+    <header class="section-header">
+      <p class="section-eyebrow">ELIGE TU NIVEL</p>
+      <h2 class="section-title">MÁS DE <span class="accent">30 SALSAS</span></h2>
+      <p class="section-desc">De lo suave a lo brutal. Encuentra la tuya o atrévete con la más picosa.</p>
+    </header>
 
-  ELEMENTOS A SUSTITUIR:
-  ┌──────────────────────────────────────────────────────────────┐
-  │ .eyebrow         → Texto corto de categoria/etiqueta         │
-  │ h2               → Titulo principal de la seccion             │
-  │ .intro           → Parrafo descriptivo de apoyo              │
-  │ .card h3         → Titulo de cada feature (x6)                │
-  │ .card p          → Descripcion de cada feature (x6)           │
-  │ .card .icon      → Emoji o icono de cada feature (x6)         │
-  │                    Agregar o quitar tarjetas segun necesidad  │
-  └──────────────────────────────────────────────────────────────┘
--->
+    <div class="heat-scale">
+      <span class="heat-label">SUAVE</span>
+      <div class="heat-bar">
+        <div class="heat-fill"></div>
+      </div>
+      <span class="heat-label">🔥 EXTREMO</span>
+    </div>
 
-<section class="features-one">
-  <div class="header">
-    <!-- EYEBROW: Etiqueta superior corta -->
-    <p class="eyebrow">Lorem Ipsum</p>
+    <div class="salsas-grid">
+      <div class="salsa-card">
+        <div class="salsa-card-top">
+          <span class="heat-badge" data-heat="1">🌶</span>
+          <span class="salsa-nombre">Honey BBQ</span>
+        </div>
+        <p class="salsa-desc">Dulce, ahumada y perfecta para los que van empezando.</p>
+        <div class="heat-dots">
+          <span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        </div>
+      </div>
 
-    <!-- TITULO: Headline principal de la seccion -->
-    <h2>Sed do eiusmod tempor incididunt ut labore et dolore</h2>
+      <div class="salsa-card">
+        <div class="salsa-card-top">
+          <span class="heat-badge" data-heat="2">🌶🌶</span>
+          <span class="salsa-nombre">Buffalo Classic</span>
+        </div>
+        <p class="salsa-desc">El clásico americano. Picante equilibrado con mantequilla.</p>
+        <div class="heat-dots">
+          <span class="dot active"></span><span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        </div>
+      </div>
 
-    <!-- INTRO: Parrafo de apoyo -->
-    <p class="intro">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud
-      exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    </p>
-  </div>
+      <div class="salsa-card featured">
+        <div class="most-popular">MÁS PEDIDA</div>
+        <div class="salsa-card-top">
+          <span class="heat-badge" data-heat="3">🌶🌶🌶</span>
+          <span class="salsa-nombre">Mango Habanero</span>
+        </div>
+        <p class="salsa-desc">La combinación perfecta: tropical y devastadora al mismo tiempo.</p>
+        <div class="heat-dots">
+          <span class="dot active"></span><span class="dot active"></span><span class="dot active"></span><span class="dot"></span><span class="dot"></span>
+        </div>
+      </div>
 
-  <!-- GRID DE FEATURES: Cada .card es una feature independiente -->
-  <div class="grid">
-    <div class="card">
-      <span class="icon">&#9670;</span>
-      <h3>Lorem Ipsum Dolor</h3>
-      <p>Consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore.</p>
+      <div class="salsa-card">
+        <div class="salsa-card-top">
+          <span class="heat-badge" data-heat="4">🌶🌶🌶🌶</span>
+          <span class="salsa-nombre">Ghost Pepper</span>
+        </div>
+        <p class="salsa-desc">Para los que dicen que nada les pica. Ya veremos.</p>
+        <div class="heat-dots">
+          <span class="dot active"></span><span class="dot active"></span><span class="dot active"></span><span class="dot active"></span><span class="dot"></span>
+        </div>
+      </div>
+
+      <div class="salsa-card danger">
+        <div class="salsa-card-top">
+          <span class="heat-badge" data-heat="5">💀</span>
+          <span class="salsa-nombre">Atomic</span>
+        </div>
+        <p class="salsa-desc">Nivel final. Firmamos responsiva. ¿Lo dudas?</p>
+        <div class="heat-dots">
+          <span class="dot active"></span><span class="dot active"></span><span class="dot active"></span><span class="dot active"></span><span class="dot active"></span>
+        </div>
+      </div>
     </div>
-    <div class="card">
-      <span class="icon">&#9674;</span>
-      <h3>Amet Consectetur</h3>
-      <p>Ut enim ad minim veniam quis nostrud exercitation ullamco laboris.</p>
-    </div>
-    <div class="card">
-      <span class="icon">&#9656;</span>
-      <h3>Adipiscing Elit Sed</h3>
-      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</p>
-    </div>
-    <div class="card">
-      <span class="icon">&#9650;</span>
-      <h3>Eiusmod Tempor</h3>
-      <p>Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia.</p>
-    </div>
-    <div class="card">
-      <span class="icon">&#9679;</span>
-      <h3>Incididunt Labore</h3>
-      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.</p>
-    </div>
-    <div class="card">
-      <span class="icon">&#9733;</span>
-      <h3>Dolore Magna</h3>
-      <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+
+    <div class="salsas-cta">
+      <p>¿Cuál te atreves a probar hoy?</p>
+      <a href="https://api.whatsapp.com/send?phone=%2B524461199994" class="btn-primary" target="_blank">PEDIR POR WHATSAPP</a>
     </div>
   </div>
 </section>
 
 <style>
-  .features-one {
-    padding: clamp(3rem, 6vw, 5rem);
-    background: linear-gradient(180deg, #0a0a0f 0%, #111827 100%);
-    color: #e2e8f0;
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+  .salsas {
+    background: #0a0a0a;
+    padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 7vw, 6rem);
   }
 
-  .header {
-    max-width: 680px;
-    margin-bottom: 2.5rem;
-  }
+  .salsas-inner { max-width: 1200px; margin: 0 auto; }
 
-  .eyebrow {
-    margin: 0;
+  /* Header */
+  .section-header { text-align: center; margin-bottom: 3rem; }
+
+  .section-eyebrow {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    color: #FFC107;
     text-transform: uppercase;
-    letter-spacing: 0.14em;
-    font-size: 0.78rem;
-    font-weight: 700;
-    color: #a78bfa;
+    margin: 0 0 0.75rem;
   }
 
-  h2 {
-    margin: 0.5rem 0;
-    font-size: clamp(1.8rem, 4vw, 3rem);
-    line-height: 1.1;
-    color: #f1f5f9;
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    color: #fff;
+    letter-spacing: 2px;
+    line-height: 1;
+    margin: 0 0 1rem;
   }
 
-  .intro {
-    margin: 0;
-    color: #94a3b8;
-    max-width: 60ch;
+  .accent { color: #FFC107; }
+
+  .section-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: rgba(255,255,255,0.45);
+    max-width: 50ch;
+    margin: 0 auto;
+    line-height: 1.6;
   }
 
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  /* Heat scale */
+  .heat-scale {
+    display: flex;
+    align-items: center;
     gap: 1rem;
+    max-width: 400px;
+    margin: 0 auto 3rem;
   }
 
-  .card {
-    background: rgba(15, 23, 42, 0.6);
-    border: 1px solid rgba(167, 139, 250, 0.18);
-    border-radius: 16px;
-    padding: 1.4rem;
-    transition: transform 0.2s ease, border-color 0.2s ease;
+  .heat-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.4);
+    white-space: nowrap;
+    text-transform: uppercase;
   }
 
-  .card:hover {
-    transform: translateY(-3px);
-    border-color: rgba(167, 139, 250, 0.45);
+  .heat-bar {
+    flex: 1;
+    height: 4px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 2px;
+    overflow: hidden;
   }
 
-  .icon {
-    display: block;
-    font-size: 1.5rem;
-    margin-bottom: 0.6rem;
-    color: #a78bfa;
+  .heat-fill {
+    height: 100%;
+    background: linear-gradient(to right, #4ade80, #FFC107, #ef4444);
+    border-radius: 2px;
   }
 
-  .card h3 {
-    margin: 0 0 0.4rem;
+  /* Grid */
+  .salsas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .salsa-card {
+    position: relative;
+    background: #111;
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 1.75rem 1.5rem;
+    transition: border-color 0.25s, transform 0.2s;
+    cursor: default;
+  }
+
+  .salsa-card:hover {
+    border-color: rgba(255,193,7,0.3);
+    transform: translateY(-4px);
+  }
+
+  .salsa-card.featured {
+    border-color: rgba(255,193,7,0.35);
+    background: linear-gradient(135deg, #111 0%, #161200 100%);
+  }
+
+  .salsa-card.danger {
+    border-color: rgba(239,68,68,0.25);
+    background: linear-gradient(135deg, #111 0%, #160a0a 100%);
+  }
+
+  .most-popular {
+    position: absolute;
+    top: -1px;
+    right: 1.25rem;
+    background: #FFC107;
+    color: #000;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding: 0.3rem 0.75rem;
+    text-transform: uppercase;
+  }
+
+  .salsa-card-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .heat-badge {
     font-size: 1.1rem;
-    color: #e2e8f0;
+    line-height: 1;
+    flex-shrink: 0;
+    margin-top: 2px;
   }
 
-  .card p {
+  .salsa-nombre {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+  }
+
+  .salsa-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.55;
+    margin: 0 0 1.25rem;
+  }
+
+  .heat-dots {
+    display: flex;
+    gap: 5px;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    transition: background 0.2s;
+  }
+
+  .dot.active { background: #FFC107; }
+  .danger .dot.active { background: #ef4444; }
+
+  /* CTA */
+  .salsas-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .salsas-cta p {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.5);
     margin: 0;
-    font-size: 0.95rem;
-    color: #94a3b8;
-    line-height: 1.5;
+    letter-spacing: 1px;
   }
 
-  @media (max-width: 640px) {
-    .features-one {
-      padding: 2rem 1rem;
-    }
+  .btn-primary {
+    display: inline-block;
+    background: #FFC107;
+    color: #000;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 0.9rem 2.25rem;
+    text-decoration: none;
+    border: 2px solid #FFC107;
+    transition: background 0.2s, color 0.2s, transform 0.15s;
+  }
 
-    .grid {
-      grid-template-columns: 1fr;
-    }
+  .btn-primary:hover {
+    background: transparent;
+    color: #FFC107;
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 600px) {
+    .salsas-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .salsas-cta { flex-direction: column; gap: 1.25rem; }
   }
 </style>

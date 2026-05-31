@@ -2,13 +2,58 @@
   "pages": {
     "home": [
       {
+        "type": "header",
+        "variant": 1,
+        "theme": "default"
+      },
+      {
         "type": "hero",
+        "variant": 1,
+        "theme": "default"
+      },
+      {
+        "type": "problema_solucion",
+        "variant": 1,
+        "theme": "default"
+      },
+      {
+        "type": "features",
+        "variant": 1,
+        "theme": "default"
+      },
+      {
+        "type": "referencias",
+        "variant": 1,
+        "theme": "default"
+      },
+      {
+        "type": "identidad",
+        "variant": 1,
+        "theme": "default"
+      },
+      {
+        "type": "faq",
+        "variant": 1,
+        "theme": "default"
+      },
+      {
+        "type": "cta",
         "variant": 1,
         "theme": "default"
       },
       {
         "type": "hero",
         "variant": 5,
+        "theme": "default"
+      },
+      {
+        "type": "footer",
+        "variant": 1,
+        "theme": "default"
+      },
+      {
+        "type": "cta",
+        "variant": 1,
         "theme": "default"
       }
     ]

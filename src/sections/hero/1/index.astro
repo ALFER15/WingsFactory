@@ -1,178 +1,222 @@
-<!--
-  HERO VARIANT 1 — Editorial con metricas
-  =========================================
-  Estilo: Fondo oscuro con acento esmeralda, composicion editorial dramatica.
-
-  ELEMENTOS A SUSTITUIR:
-  ┌─────────────────────────────────────────────────────────┐
-  │ .kicker          → Texto corto de categoria/etiqueta    │
-  │ h1               → Titulo principal del hero            │
-  │ .lead            → Parrafo descriptivo de apoyo         │
-  │ .btn-primary     → Texto + href del CTA principal       │
-  │ .btn-ghost       → Texto + href del CTA secundario      │
-  │ .metrics strong  → Cifra/dato destacado (x3)            │
-  │ .metrics span    → Descripcion de cada metrica (x3)     │
-  │ .halo            → Decorativo, no requiere sustitucion  │
-  └─────────────────────────────────────────────────────────┘
--->
-
-<section class="hero-one">
-  <div class="hero-inner">
-    <!-- KICKER: Etiqueta superior corta -->
-    <p class="kicker">Lorem Ipsum</p>
-
-    <!-- TITULO: Headline principal del hero -->
-    <h1>Dolor sit amet consectetur adipiscing elit sed do eiusmod</h1>
-
-    <!-- DESCRIPCION: Parrafo de apoyo bajo el titulo -->
-    <p class="lead">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore
-      et dolore magna aliqua. Ut enim ad minim veniam quis nostrud.
-    </p>
-
-    <div class="actions">
-      <!-- CTA PRINCIPAL: Boton primario -->
-      <a href="#" class="btn btn-primary">Lorem Ipsum</a>
-      <!-- CTA SECUNDARIO: Boton ghost -->
-      <a href="#" class="btn btn-ghost">Dolor Sit</a>
-    </div>
-
-    <!-- METRICAS: 3 bloques de dato + descripcion -->
-    <ul class="metrics">
-      <li><strong>+120%</strong><span>Lorem ipsum dolor sit</span></li>
-      <li><strong>14 min</strong><span>Consectetur adipiscing</span></li>
-      <li><strong>24/7</strong><span>Sed do eiusmod tempor</span></li>
-    </ul>
+<!-- HERO: Full-bleed, comida como protagonista -->
+<section class="hero">
+  <div class="hero-bg" aria-hidden="true">
+    <img src="/images/hero.png" alt="" class="hero-bg-img" />
+    <div class="hero-vignette"></div>
   </div>
 
-  <div class="halo" aria-hidden="true"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">WINGS FACTORY · QUERÉTARO</p>
+    <h1 class="hero-title">
+      SABOR<br/>
+      <span class="hero-title-accent">BRUTAL.</span><br/>
+      SIN EXCUSAS.
+    </h1>
+    <p class="hero-sub">+30 salsas · Pollo fresco diario · Listo en 30 min</p>
+    <div class="hero-actions">
+      <a
+        href="https://api.whatsapp.com/send?phone=%2B524461199994&token=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEyNSJ9.eyJleHAiOjE3ODAzMDAyMDgsInBob25lIjoiKzUyNDQ2MTE5OTk5NCIsImNvbnRleHQiOiJBZmhZSzc0Q3d6RndGbVo4Ri1hQWFlTzNZZVNFTG9zWDZoQXZNM0NOZkstMTI3d0NZRDFRaVdhRVdjVFRyRGpXM1lYUEZEWnlTUTJURUpvVEZVYWk1eFFFa3V3ZUVfT1p2bldGVmEzbC04Qk5jVFdJTmE4VTMwaXlKQk1KX3FyaWI1VnNGckIxTldqX2ppRFc0dlpGRktxVmR3Iiwic291cmNlIjoiRkJfUGFnZSIsImFwcCI6ImZhY2Vib29rIiwiZW50cnlfcG9pbnQiOiJwYWdlX2N0YSJ9.8owlkad5mqYda9jI4TLUiEWgeFzOMD7e-I9yvlU6Ua-mYwwp82B98-QcpOvD74iH1s2M13u7hHShMlFbV9ehDA&fbclid=IwY2xjawSIyetleHRuA2FlbQIxMABicmlkETE2alltSDlGVHlmZWRDN1Nhc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHv6nZEaw32rEAb9WV4bgO71ihWJie7lAPOWfRK_MKwMcADnXjYpRpIC-pnQN_aem_ydU8q9O4tZzEcGxHOW-wpg"
+        class="btn-primary"
+        target="_blank"
+      >PEDIR AHORA</a>
+      <a href="#sabores" class="btn-secondary">VER SALSAS</a>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <span class="stat-num">+30</span>
+      <span class="stat-label">Salsas</span>
+    </div>
+    <div class="stat-sep" aria-hidden="true"></div>
+    <div class="hero-stat">
+      <span class="stat-num">30'</span>
+      <span class="stat-label">Entrega</span>
+    </div>
+    <div class="stat-sep" aria-hidden="true"></div>
+    <div class="hero-stat">
+      <span class="stat-num">4.2★</span>
+      <span class="stat-label">Google</span>
+    </div>
+  </div>
 </section>
 
 <style>
-  .hero-one {
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+  .hero {
     position: relative;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     overflow: hidden;
-    padding: clamp(3rem, 7vw, 6rem);
-    color: #ecfff8;
-    background: radial-gradient(circle at 80% -20%, #5eead4 0%, transparent 45%),
-      linear-gradient(135deg, #052e2b 0%, #063c39 38%, #0f172a 100%);
+    background: #000;
   }
 
-  .hero-inner {
-    max-width: 760px;
+  /* BG Image */
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    display: block;
+    opacity: 0.6;
+  }
+
+  .hero-vignette {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to top, rgba(0,0,0,0.97) 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.15) 70%, transparent 100%),
+      linear-gradient(to right, rgba(0,0,0,0.5) 0%, transparent 60%);
+  }
+
+  /* Content */
+  .hero-content {
     position: relative;
     z-index: 2;
+    padding: 0 clamp(1.5rem, 7vw, 6rem) 0;
+    max-width: 1300px;
+    margin: 0 auto;
+    width: 100%;
+    padding-bottom: 1rem;
   }
 
-  .kicker {
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
+  .hero-eyebrow {
+    font-family: 'Oswald', sans-serif;
     font-size: 0.78rem;
-    color: #7efdd8;
-    margin-bottom: 0.8rem;
+    letter-spacing: 4px;
+    color: #FFC107;
+    text-transform: uppercase;
+    margin: 0 0 1rem;
+    font-weight: 500;
   }
 
-  h1 {
-    font-size: clamp(2rem, 5vw, 4rem);
-    margin: 0;
-    line-height: 1.05;
+  .hero-title {
+    font-family: 'Bebas Neue', 'Teko', sans-serif;
+    font-size: clamp(5rem, 14vw, 12rem);
+    line-height: 0.9;
+    margin: 0 0 1.25rem;
+    color: #fff;
+    letter-spacing: 2px;
+    text-transform: uppercase;
   }
 
-  .lead {
-    margin-top: 1rem;
-    font-size: clamp(1rem, 2vw, 1.25rem);
-    color: #b4f9e5;
-    max-width: 62ch;
+  .hero-title-accent { color: #FFC107; }
+
+  .hero-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
+    color: rgba(255,255,255,0.55);
+    margin: 0 0 2rem;
+    letter-spacing: 1px;
   }
 
-  .actions {
+  .hero-actions {
     display: flex;
+    gap: 1rem;
     flex-wrap: wrap;
-    gap: 0.8rem;
-    margin-top: 1.6rem;
-  }
-
-  .btn {
-    text-decoration: none;
-    padding: 0.8rem 1.2rem;
-    border-radius: 999px;
-    font-weight: 600;
-    transition: transform 0.2s ease;
-  }
-
-  .btn:hover {
-    transform: translateY(-2px);
+    margin-bottom: 4rem;
   }
 
   .btn-primary {
-    background: #6ff6cf;
-    color: #05312d;
+    display: inline-block;
+    background: #FFC107;
+    color: #000;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 1rem 2.5rem;
+    text-decoration: none;
+    border: 2px solid #FFC107;
+    transition: background 0.2s, color 0.2s, transform 0.15s;
   }
 
-  .btn-ghost {
-    border: 1px solid #8fffe0;
-    color: #ccffee;
+  .btn-primary:hover {
+    background: transparent;
+    color: #FFC107;
+    transform: translateY(-2px);
   }
 
-  .metrics {
-    margin: 2rem 0 0;
-    padding: 0;
-    list-style: none;
-    display: grid;
-    gap: 0.9rem;
-    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  .btn-secondary {
+    display: inline-block;
+    background: transparent;
+    color: #fff;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 1rem 2.5rem;
+    text-decoration: none;
+    border: 2px solid rgba(255,255,255,0.25);
+    transition: border-color 0.2s, color 0.2s, transform 0.15s;
   }
 
-  .metrics li {
-    background: rgba(9, 42, 39, 0.55);
-    border: 1px solid rgba(129, 255, 220, 0.22);
-    border-radius: 14px;
-    padding: 0.9rem;
+  .btn-secondary:hover {
+    border-color: #FFC107;
+    color: #FFC107;
+    transform: translateY(-2px);
   }
 
-  .metrics strong {
-    display: block;
-    font-size: 1.2rem;
+  /* Stats strip */
+  .hero-stats {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: rgba(255,193,7,0.06);
+    border-top: 1px solid rgba(255,193,7,0.2);
+    padding: 1.5rem clamp(1.5rem, 7vw, 6rem);
+    max-width: 100%;
   }
 
-  .metrics span {
-    color: #befde9;
-    font-size: 0.92rem;
+  .hero-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 3rem;
   }
 
-  .halo {
-    position: absolute;
-    width: 360px;
-    height: 360px;
-    right: -80px;
-    top: -80px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(126, 253, 216, 0.55), rgba(126, 253, 216, 0));
-    filter: blur(8px);
+  .hero-stat:first-child { padding-left: 0; }
+
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    color: #FFC107;
+    line-height: 1;
+    letter-spacing: 1px;
   }
 
-  @media (max-width: 640px) {
-    .hero-one {
-      padding: clamp(2rem, 5vw, 3rem) 1rem;
-    }
+  .stat-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 0.2rem;
+  }
 
-    .actions {
-      flex-direction: column;
-    }
+  .stat-sep {
+    width: 1px;
+    height: 36px;
+    background: rgba(255,255,255,0.1);
+    flex-shrink: 0;
+  }
 
-    .btn {
-      text-align: center;
-    }
-
-    .metrics {
-      grid-template-columns: 1fr;
-    }
-
-    .halo {
-      width: 200px;
-      height: 200px;
-      right: -40px;
-      top: -40px;
-    }
+  @media (max-width: 600px) {
+    .hero-title { font-size: clamp(4rem, 20vw, 8rem); }
+    .hero-stats { justify-content: center; }
+    .hero-stat { padding: 0 1.5rem; }
   }
 </style>

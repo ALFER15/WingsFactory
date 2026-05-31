@@ -1,157 +1,188 @@
-<!--
-  REFERENCIAS VARIANT 1 — Tarjetas de testimonios
-  ==================================================
-  Estilo: Grid de tarjetas con cita, nombre y rol sobre fondo oscuro.
+<!-- SECCIÓN: Ubicación / Referencias -->
+<section class="ubicacion" id="ubicacion">
+  <div class="ubicacion-inner">
+    <div class="ubicacion-info">
+      <p class="section-eyebrow">ENCUÉNTRANOS</p>
+      <h2 class="section-title">ESTAMOS <span class="accent">AQUÍ</span></h2>
 
-  ELEMENTOS A SUSTITUIR:
-  ┌──────────────────────────────────────────────────────────────┐
-  │ .eyebrow         → Texto corto de categoria/etiqueta         │
-  │ h2               → Titulo principal de la seccion             │
-  │ .intro           → Parrafo descriptivo de apoyo              │
-  │ .card blockquote → Texto del testimonio (x3)                  │
-  │ .card .name      → Nombre de la persona (x3)                  │
-  │ .card .role      → Cargo o empresa (x3)                       │
-  │ .card .avatar    → Iniciales o imagen (x3)                    │
-  └──────────────────────────────────────────────────────────────┘
--->
+      <div class="info-cards">
+        <div class="info-card">
+          <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s-8-6.5-8-12a8 8 0 0 1 16 0c0 5.5-8 12-8 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          <div>
+            <span class="info-label">DIRECCIÓN</span>
+            <span class="info-value">Plaza Jardines, Prol. Av. Zaragoza 99<br/>Jardines de la Hacienda, Querétaro</span>
+          </div>
+        </div>
 
-<section class="ref-one">
-  <div class="header">
-    <p class="eyebrow">Lorem Ipsum</p>
-    <h2>Quis nostrud exercitation ullamco laboris</h2>
-    <p class="intro">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
-  </div>
+        <div class="info-card">
+          <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 3.5"/></svg>
+          <div>
+            <span class="info-label">HORARIOS</span>
+            <span class="info-value">
+              Lun–Mié: 1:30 PM – 11:00 PM<br/>
+              Jue–Sáb: 1:30 PM – 12:30 AM<br/>
+              Dom: 1:30 PM – 10:00 PM
+            </span>
+          </div>
+        </div>
 
-  <div class="grid">
-    <div class="card">
-      <blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam quis nostrud exercitation.</blockquote>
-      <div class="author">
-        <span class="avatar">LI</span>
-        <div>
-          <p class="name">Lorem Ipsum</p>
-          <p class="role">Dolor Sit Amet</p>
+        <div class="info-card">
+          <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.9 12.34 19.79 19.79 0 0 1 1.79 3.8 2 2 0 0 1 3.77 1.6h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.34a16 16 0 0 0 6.87 6.87l1.1-1.1a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <div>
+            <span class="info-label">CONTACTO</span>
+            <a class="info-value info-link" href="https://api.whatsapp.com/send?phone=%2B524461199994" target="_blank">+52 446 119 9994<br/><small>Chat directo por WhatsApp</small></a>
+          </div>
         </div>
       </div>
+
+      <a href="https://www.google.com/maps/place/Wings+Factory+-+Quer%C3%A9taro,+Plaza+Jardines,+Prol.+Av.+Zaragoza+99,+Jardines+de+la+Hacienda,+76180+Santiago+de+Quer%C3%A9taro,+Qro.,+M%C3%A9xico/@20.6484,−100.4058,17z" class="btn-outline" target="_blank">CÓMO LLEGAR →</a>
     </div>
-    <div class="card">
-      <blockquote>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</blockquote>
-      <div class="author">
-        <span class="avatar">DS</span>
-        <div>
-          <p class="name">Dolor Sit</p>
-          <p class="role">Consectetur Adipiscing</p>
-        </div>
-      </div>
-    </div>
-    <div class="card">
-      <blockquote>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est.</blockquote>
-      <div class="author">
-        <span class="avatar">AC</span>
-        <div>
-          <p class="name">Amet Consectetur</p>
-          <p class="role">Eiusmod Tempor</p>
-        </div>
-      </div>
+
+    <div class="ubicacion-map">
+      <iframe
+        src="https://maps.google.com/maps?q=Wings+Factory+Quer%C3%A9taro+Plaza+Jardines+Prol+Av+Zaragoza+99+Jardines+de+la+Hacienda&output=embed&z=17&hl=es"
+        title="Mapa Wings Factory Querétaro"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
     </div>
   </div>
 </section>
 
 <style>
-  .ref-one {
-    padding: clamp(3rem, 6vw, 5rem) clamp(1rem, 4vw, 2rem);
-    background: linear-gradient(180deg, #0f172a 0%, #0a0a0f 100%);
-    color: #e2e8f0;
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+  .ubicacion {
+    background: #060606;
+    padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 7vw, 6rem);
+    border-top: 1px solid rgba(255,255,255,0.05);
   }
 
-  .header {
-    max-width: 680px;
+  .ubicacion-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .section-eyebrow {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    color: #FFC107;
+    text-transform: uppercase;
+    margin: 0 0 0.75rem;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    color: #fff;
+    letter-spacing: 2px;
+    line-height: 1;
+    margin: 0 0 2.5rem;
+  }
+
+  .accent { color: #FFC107; }
+
+  /* Info cards */
+  .info-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
     margin-bottom: 2.5rem;
   }
 
-  .eyebrow {
-    margin: 0;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    font-size: 0.78rem;
-    font-weight: 700;
-    color: #f59e0b;
-  }
-
-  h2 {
-    margin: 0.5rem 0;
-    font-size: clamp(1.6rem, 4vw, 2.8rem);
-    line-height: 1.1;
-    color: #f1f5f9;
-  }
-
-  .intro {
-    margin: 0;
-    color: #94a3b8;
-    max-width: 55ch;
-  }
-
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  .info-card {
+    display: flex;
     gap: 1.25rem;
-    max-width: 1100px;
-    margin: 0 auto;
+    align-items: flex-start;
+    padding: 1.25rem;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
   }
 
-  .card {
-    background: rgba(15, 23, 42, 0.65);
-    border: 1px solid rgba(245, 158, 11, 0.18);
-    border-radius: 16px;
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-  }
-
-  blockquote {
-    margin: 0;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: #cbd5e1;
-    font-style: italic;
-  }
-
-  .author {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  .avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: rgba(245, 158, 11, 0.2);
-    color: #f59e0b;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 0.8rem;
+  .info-icon {
+    width: 22px;
+    height: 22px;
+    color: #FFC107;
     flex-shrink: 0;
+    margin-top: 2px;
   }
 
-  .name {
-    margin: 0;
-    font-weight: 600;
+  .info-label {
+    display: block;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 2.5px;
+    color: rgba(255,255,255,0.35);
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+
+  .info-value {
+    display: block;
+    font-family: 'Inter', sans-serif;
     font-size: 0.9rem;
-    color: #f1f5f9;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.6;
   }
 
-  .role {
-    margin: 0.1rem 0 0;
-    font-size: 0.8rem;
-    color: #94a3b8;
+  .info-link {
+    text-decoration: none;
+    color: rgba(255,255,255,0.75);
+    transition: color 0.2s;
   }
 
-  @media (max-width: 640px) {
-    .grid {
-      grid-template-columns: 1fr;
-    }
+  .info-link:hover { color: #FFC107; }
+
+  .info-link small {
+    display: block;
+    font-size: 0.78rem;
+    color: rgba(37,211,102,0.7);
+    margin-top: 0.25rem;
+  }
+
+  .btn-outline {
+    display: inline-block;
+    border: 2px solid rgba(255,255,255,0.15);
+    color: #fff;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 0.85rem 2rem;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s, transform 0.15s;
+  }
+
+  .btn-outline:hover {
+    border-color: #FFC107;
+    color: #FFC107;
+    transform: translateY(-2px);
+  }
+
+  /* Map */
+  .ubicacion-map {
+    position: relative;
+    height: 480px;
+    background: #111;
+  }
+
+  .ubicacion-map iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+    filter: grayscale(1) invert(1) brightness(0.8);
+  }
+
+  @media (max-width: 900px) {
+    .ubicacion-inner { grid-template-columns: 1fr; }
+    .ubicacion-map { height: 300px; }
   }
 </style>

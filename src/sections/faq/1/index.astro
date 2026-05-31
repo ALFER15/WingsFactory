@@ -1,149 +1,189 @@
-<!--
-  FAQ VARIANT 1 — Acordeon simple
-  =================================
-  Estilo: Preguntas con details/summary nativo, fondo oscuro.
+<!-- SECCIÓN: FAQ -->
+<section class="faq-section" id="faq">
+  <div class="faq-inner">
+    <header class="faq-header">
+      <p class="section-eyebrow">PREGUNTAS FRECUENTES</p>
+      <h2 class="section-title">TODO LO QUE <span class="accent">NECESITAS</span> SABER</h2>
+    </header>
 
-  ELEMENTOS A SUSTITUIR:
-  ┌──────────────────────────────────────────────────────────────┐
-  │ .eyebrow         → Texto corto de categoria/etiqueta         │
-  │ h2               → Titulo principal de la seccion             │
-  │ .intro           → Parrafo descriptivo de apoyo              │
-  │ summary          → Texto de cada pregunta (x5)                │
-  │ details p        → Texto de cada respuesta (x5)               │
-  └──────────────────────────────────────────────────────────────┘
--->
+    <div class="faq-grid">
+      <details class="faq-item">
+        <summary class="faq-q">¿Hacen pedidos a domicilio?</summary>
+        <div class="faq-a">
+          <p>¡Claro! Puedes pedir directamente por WhatsApp o a través de DiDi Food, Rappi y Uber Eats. El tiempo promedio de entrega es de 25 a 35 minutos dependiendo tu zona.</p>
+        </div>
+      </details>
 
-<section class="faq-one">
-  <div class="header">
-    <p class="eyebrow">Lorem Ipsum</p>
-    <h2>Preguntas frecuentes</h2>
-    <p class="intro">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt.</p>
-  </div>
+      <details class="faq-item">
+        <summary class="faq-q">¿Cuál es el horario?</summary>
+        <div class="faq-a">
+          <table class="schedule-table">
+            <tr><td>Lunes – Miércoles</td><td>1:30 PM – 11:00 PM</td></tr>
+            <tr><td>Jueves – Sábado</td><td>1:30 PM – 12:30 AM</td></tr>
+            <tr><td>Domingo</td><td>1:30 PM – 10:00 PM</td></tr>
+          </table>
+        </div>
+      </details>
 
-  <div class="accordion">
-    <details>
-      <summary>Lorem ipsum dolor sit amet consectetur?</summary>
-      <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    </details>
-    <details>
-      <summary>Ut enim ad minim veniam quis nostrud?</summary>
-      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
-    </details>
-    <details>
-      <summary>Duis aute irure dolor in reprehenderit?</summary>
-      <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error.</p>
-    </details>
-    <details>
-      <summary>Excepteur sint occaecat cupidatat non proident?</summary>
-      <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-    </details>
-    <details>
-      <summary>Sed ut perspiciatis unde omnis iste natus?</summary>
-      <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore.</p>
-    </details>
+      <details class="faq-item">
+        <summary class="faq-q">¿Tienen estacionamiento?</summary>
+        <div class="faq-a">
+          <p>Sí, contamos con estacionamiento disponible en Plaza Jardines. También puedes usar el estacionamiento del centro comercial.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">¿Cuántas salsas tienen disponibles?</summary>
+        <div class="faq-a">
+          <p>Tenemos más de 30 salsas que van desde el Honey BBQ hasta el temido Atomic. Si es tu primera vez, te recomendamos el Mango Habanero — la favorita de nuestra clientela.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">¿Tienen promociones o noches especiales?</summary>
+        <div class="faq-a">
+          <p>¡Sí! Siguenos en Instagram <strong>@wf_queretaro</strong> o Facebook <strong>WFQUERETARO</strong> para enterarte de todas las promos, happy hours y noches de partido.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">¿Dónde están ubicados exactamente?</summary>
+        <div class="faq-a">
+          <p>Estamos en <strong>Plaza Jardines, Prol. Av. Zaragoza 99, Jardines de la Hacienda, Santiago de Querétaro</strong>. Fácil acceso y estacionamiento disponible.</p>
+        </div>
+      </details>
+    </div>
   </div>
 </section>
 
 <style>
-  .faq-one {
-    padding: clamp(3rem, 6vw, 5rem) clamp(1rem, 4vw, 2rem);
-    background: linear-gradient(180deg, #0f172a 0%, #0a0a0f 100%);
-    color: #e2e8f0;
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+  .faq-section {
+    background: #0a0a0a;
+    padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 7vw, 6rem);
+    border-top: 1px solid rgba(255,255,255,0.05);
   }
 
-  .header {
-    max-width: 680px;
-    margin: 0 auto 2.5rem;
-    text-align: center;
-  }
+  .faq-inner { max-width: 1000px; margin: 0 auto; }
 
-  .eyebrow {
-    margin: 0;
+  .faq-header { text-align: center; margin-bottom: 3.5rem; }
+
+  .section-eyebrow {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    color: #FFC107;
     text-transform: uppercase;
-    letter-spacing: 0.14em;
-    font-size: 0.78rem;
-    font-weight: 700;
-    color: #a78bfa;
+    margin: 0 0 0.75rem;
   }
 
-  h2 {
-    margin: 0.5rem 0;
-    font-size: clamp(1.6rem, 4vw, 2.8rem);
-    line-height: 1.1;
-    color: #f1f5f9;
-  }
-
-  .intro {
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: #fff;
+    letter-spacing: 2px;
+    line-height: 1;
     margin: 0;
-    color: #94a3b8;
   }
 
-  .accordion {
-    max-width: 720px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+  .accent { color: #FFC107; }
+
+  /* FAQ Grid */
+  .faq-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.06);
   }
 
-  details {
-    background: rgba(15, 23, 42, 0.6);
-    border: 1px solid rgba(167, 139, 250, 0.18);
-    border-radius: 14px;
-    overflow: hidden;
-    transition: border-color 0.2s ease;
+  .faq-item {
+    background: #0a0a0a;
+    padding: 0;
   }
 
-  details[open] {
-    border-color: rgba(167, 139, 250, 0.4);
-  }
-
-  summary {
-    padding: 1.1rem 1.3rem;
-    font-weight: 600;
-    font-size: 1rem;
-    color: #f1f5f9;
-    cursor: pointer;
+  .faq-q {
     list-style: none;
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     gap: 1rem;
+    padding: 1.5rem 1.75rem;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.2s, background 0.2s;
+    border-bottom: 1px solid transparent;
   }
 
-  summary::-webkit-details-marker {
-    display: none;
-  }
+  .faq-q::-webkit-details-marker { display: none; }
 
-  summary::after {
+  .faq-q::after {
     content: '+';
-    font-size: 1.3rem;
-    color: #a78bfa;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    color: #FFC107;
     flex-shrink: 0;
-    transition: transform 0.2s ease;
+    transition: transform 0.25s;
   }
 
-  details[open] summary::after {
+  .faq-item[open] .faq-q {
+    color: #FFC107;
+    background: rgba(255,193,7,0.04);
+    border-bottom: 1px solid rgba(255,193,7,0.15);
+  }
+
+  .faq-item[open] .faq-q::after {
     transform: rotate(45deg);
   }
 
-  details p {
-    margin: 0;
-    padding: 0 1.3rem 1.1rem;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: #94a3b8;
+  .faq-a {
+    padding: 1.25rem 1.75rem 1.75rem;
+    background: rgba(255,255,255,0.02);
   }
 
-  @media (max-width: 640px) {
-    summary {
-      font-size: 0.92rem;
-      padding: 0.9rem 1rem;
-    }
+  .faq-a p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.7;
+    margin: 0;
+  }
 
-    details p {
-      padding: 0 1rem 0.9rem;
-      font-size: 0.9rem;
-    }
+  .faq-a strong { color: rgba(255,255,255,0.75); }
+
+  /* Schedule Table */
+  .schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.88rem;
+  }
+
+  .schedule-table tr {
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .schedule-table td {
+    padding: 0.6rem 0;
+    color: rgba(255,255,255,0.55);
+  }
+
+  .schedule-table td:last-child {
+    text-align: right;
+    color: #FFC107;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 1px;
+  }
+
+  @media (max-width: 768px) {
+    .faq-grid { grid-template-columns: 1fr; }
+    .faq-q { padding: 1.25rem; font-size: 0.95rem; }
+    .faq-a { padding: 1rem 1.25rem 1.5rem; }
   }
 </style>

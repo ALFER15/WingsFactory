@@ -1,0 +1,80 @@
+<!-- CTA FINAL: Problema/Solución strip -->
+<section class="cta-strip">
+  <div class="cta-inner">
+    <div class="cta-text">
+      <h2 class="cta-title">¿TIENES HAMBRE?</h2>
+      <p class="cta-sub">No pienses más. Las mejores alitas de Querétaro están a una llamada.</p>
+    </div>
+    <div class="cta-actions">
+      <a
+        href="https://api.whatsapp.com/send?phone=%2B524461199994&token=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEyNSJ9.eyJleHAiOjE3ODAzMDAyMDgsInBob25lIjoiKzUyNDQ2MTE5OTk5NCIsImNvbnRleHQiOiJBZmhZSzc0Q3d6RndGbVo4Ri1hQWFlTzNZZVNFTG9zWDZoQXZNM0NOZkstMTI3d0NZRDFRaVdhRVdjVFRyRGpXM1lYUEZEWnlTUTJURUpvVEZVYWk1eFFFa3V3ZUVfT1p2bldGVmEzbC04Qk5jVFdJTmE4VTMwaXlKQk1KX3FyaWI1VnNGckIxTldqX2ppRFc0dlpGRktxVmR3Iiwic291cmNlIjoiRkJfUGFnZSIsImFwcCI6ImZhY2Vib29rIiwiZW50cnlfcG9pbnQiOiJwYWdlX2N0YSJ9.8owlkad5mqYda9jI4TLUiEWgeFzOMD7e-I9yvlU6Ua-mYwwp82B98-QcpOvD74iH1s2M13u7hHShMlFbV9ehDA"
+        class="btn-primary"
+        target="_blank"
+      >PEDIR POR WHATSAPP</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+  .cta-strip {
+    background: #FFC107;
+    padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 7vw, 6rem);
+  }
+
+  .cta-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .cta-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    color: #000;
+    letter-spacing: 2px;
+    margin: 0 0 0.5rem;
+    line-height: 1;
+  }
+
+  .cta-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: rgba(0,0,0,0.6);
+    margin: 0;
+    max-width: 45ch;
+    line-height: 1.5;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: #000;
+    color: #FFC107;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 1.1rem 3rem;
+    text-decoration: none;
+    border: 2px solid #000;
+    white-space: nowrap;
+    transition: background 0.2s, color 0.2s, transform 0.15s;
+    flex-shrink: 0;
+  }
+
+  .btn-primary:hover {
+    background: transparent;
+    color: #000;
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 700px) {
+    .cta-inner { flex-direction: column; align-items: flex-start; }
+  }
+</style>

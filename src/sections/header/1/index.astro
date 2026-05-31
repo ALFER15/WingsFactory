@@ -1,0 +1,296 @@
+<!-- HEADER: Bold & Brutalist (Sports Bar Style) -->
+<header class="site-header" id="main-header">
+  <div class="header-inner">
+    
+    <!-- Left: Logo & Location -->
+    <a href="/" class="logo-link" aria-label="Wings Factory – Inicio">
+      <img src="/images/1780217112015.png" alt="Wings Factory" class="logo-img" />
+    </a>
+
+    <!-- Center: Main Nav -->
+    <nav class="main-nav" aria-label="Navegación principal">
+      <a href="#sabores" class="nav-link">LAS SALSAS</a>
+      <a href="#experiencia" class="nav-link">EL LUGAR</a>
+      <a href="#ubicacion" class="nav-link">CÓMO LLEGAR</a>
+    </nav>
+
+    <!-- Right: Status & Action -->
+    <div class="header-right">
+      <div class="status-badge" id="store-status" aria-label="Estado de la sucursal">
+        <span class="status-dot"></span> <span id="status-text">...</span>
+      </div>
+      <a
+        href="https://api.whatsapp.com/send?phone=%2B524461199994"
+        class="header-cta"
+        target="_blank"
+      >
+        PEDIR AHORA
+      </a>
+    </div>
+
+  </div>
+  <!-- Barra inferior amarilla agresiva -->
+  <div class="header-accent"></div>
+</header>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Scroll shrink logic
+    const header = document.getElementById('main-header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('is-scrolled');
+      } else {
+        header.classList.remove('is-scrolled');
+      }
+    }, { passive: true });
+
+    // Store hours logic
+    function checkStoreStatus() {
+      // Always check using Mexico City time to avoid issues with user's local timezone
+      const mxTime = new Date().toLocaleString("en-US", {timeZone: "America/Mexico_City"});
+      const now = new Date(mxTime);
+      const d = now.getDay(); // 0=Sun, 1=Mon, ..., 6=Sat
+      const h = now.getHours();
+      const m = now.getMinutes();
+      const mins = h * 60 + m;
+
+      let isOpen = false;
+
+      // Late night closure (00:00 to 00:30) checking for Thu, Fri, Sat
+      if (h === 0 && m < 30) {
+        const prevDay = (d + 6) % 7;
+        if (prevDay >= 4 && prevDay <= 6) { // Thu, Fri, Sat close at 00:30 the next day
+          isOpen = true;
+        }
+      } else {
+        // Normal daytime schedules
+        if (d === 0) { // Sunday: 1:30 PM - 10:00 PM (810 - 1320 mins)
+          if (mins >= 810 && mins < 1320) isOpen = true; 
+        } else if (d >= 1 && d <= 3) { // Mon-Wed: 1:30 PM - 11:00 PM (810 - 1380 mins)
+          if (mins >= 810 && mins < 1380) isOpen = true; 
+        } else if (d >= 4 && d <= 6) { // Thu-Sat: 1:30 PM - 12:00 AM (810 - 1440 mins)
+          if (mins >= 810 && mins < 1440) isOpen = true; 
+        }
+      }
+
+      const statusBadge = document.getElementById('store-status');
+      const statusText = document.getElementById('status-text');
+
+      if (statusBadge && statusText) {
+        if (isOpen) {
+          statusBadge.classList.remove('is-closed');
+          statusText.textContent = 'ABIERTO';
+        } else {
+          statusBadge.classList.add('is-closed');
+          statusText.textContent = 'CERRADO';
+        }
+      }
+    }
+
+    checkStoreStatus();
+    // Update every minute automatically
+    setInterval(checkStoreStatus, 60000);
+  });
+</script>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@500;600;700&display=swap');
+
+  .site-header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: #000; /* Fondo negro sólido, nada de cristal */
+    transition: all 0.3s ease;
+  }
+
+  .header-accent {
+    width: 100%;
+    height: 3px;
+    background: #FFC107;
+  }
+
+  .site-header.is-scrolled {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+  }
+
+  .header-inner {
+    max-width: 1300px;
+    margin: 0 auto;
+    height: 80px;
+    padding: 0 clamp(1.25rem, 5vw, 4rem);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    transition: height 0.3s ease;
+  }
+
+  .site-header.is-scrolled .header-inner {
+    height: 64px; /* Se encoge un poco al scrollear */
+  }
+
+  /* ── LOGO ── */
+  .logo-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .logo-img {
+    height: 42px;
+    width: auto;
+    display: block;
+    filter: brightness(0) invert(1);
+    transition: height 0.3s ease;
+  }
+
+  .site-header.is-scrolled .logo-img {
+    height: 34px;
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-left: 2px solid rgba(255,255,255,0.15);
+    padding-left: 1rem;
+  }
+
+  .logo-city {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.65rem;
+    color: #FFC107;
+    letter-spacing: 3px;
+    line-height: 1;
+    margin-bottom: 3px;
+  }
+
+  .logo-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 1px;
+    line-height: 1;
+  }
+
+  /* ── NAV ── */
+  .main-nav {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+  }
+
+  .nav-link {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+    padding: 0.5rem 0;
+    transition: color 0.2s;
+  }
+
+  /* Subrayado brutalista */
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: #FFC107;
+    transition: width 0.25s ease;
+  }
+
+  .nav-link:hover {
+    color: #FFC107;
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  /* ── CTA & STATUS ── */
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .status-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.75rem;
+    color: #fff;
+    letter-spacing: 2px;
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 0.35rem 0.75rem;
+    transition: all 0.3s ease;
+  }
+
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    background: #25d366; /* Verde tipo Whatsapp/Abierto */
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(37,211,102,0.6);
+    transition: all 0.3s ease;
+  }
+
+  .status-badge.is-closed {
+    color: rgba(255,255,255,0.4);
+    border-color: rgba(255,59,48,0.4);
+  }
+
+  .status-badge.is-closed .status-dot {
+    background: #ff3b30; /* Rojo/Cerrado */
+    box-shadow: 0 0 10px rgba(255,59,48,0.6);
+  }
+
+  .header-cta {
+    background: #FFC107;
+    color: #000;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 0.75rem 1.75rem;
+    text-decoration: none;
+    border: 2px solid #FFC107;
+    transition: all 0.2s;
+  }
+
+  .header-cta:hover {
+    background: transparent;
+    color: #FFC107;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    .main-nav { display: none; }
+    .status-badge { display: none; }
+    .logo-text { border: none; padding-left: 0; }
+    .logo-city { display: none; }
+  }
+
+  @media (max-width: 600px) {
+    .header-inner { height: 70px; padding: 0 1rem; }
+    .site-header.is-scrolled .header-inner { height: 60px; }
+    .logo-img { height: 32px; }
+    .site-header.is-scrolled .logo-img { height: 28px; }
+    .header-cta { font-size: 0.85rem; padding: 0.6rem 1.25rem; }
+  }
+</style>
